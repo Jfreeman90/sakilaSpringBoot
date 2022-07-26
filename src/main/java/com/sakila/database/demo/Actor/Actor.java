@@ -1,4 +1,4 @@
-package com.sakila.database.demo;
+package com.sakila.database.demo.Actor;
 
 import javax.persistence.*;
 
@@ -24,7 +24,6 @@ public class Actor {
     public Actor() {}
 
     //Getter and Setters
-
     public int getActor_id() {
         return actor_id;
     }
@@ -49,4 +48,12 @@ public class Actor {
         this.last_name = last_name;
     }
 
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "actor_id=" + actor_id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                '}';
+    }
 }
