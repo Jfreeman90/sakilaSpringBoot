@@ -40,6 +40,12 @@ public class ActorController {
         return actorRepository.findById(id);
     }
 
+    //Get request for a specific actor using a request paramater instead of a fixed url look up.
+    @GetMapping("/actorID")
+    public @ResponseBody Optional<Actor> actorById(@RequestParam int id){
+        return actorRepository.findById(id);
+    }
+
     //Get request to return actor details based on name
     @GetMapping("/firstname/{first_name}")
     public @ResponseBody
