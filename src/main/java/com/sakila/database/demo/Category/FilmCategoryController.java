@@ -23,7 +23,7 @@ public class FilmCategoryController {
         return filmCategoryRepository.findAll();
     }
 
-    /*Get request for a specific film based on the id
+    //Get request for a specific film based on the id
     @GetMapping("/{id}")
     public @ResponseBody
     Optional<FilmCategory> getFilmAndCatsById(@PathVariable(name="id") int id) {
@@ -36,5 +36,5 @@ public class FilmCategoryController {
         return filmCategoryRepository.findById(id);
     }
 
-     */
+
 }
