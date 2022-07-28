@@ -19,7 +19,7 @@ _________________________________________URL PATHS______________________________
 ------------FILMS----------
 /films/all                                  >>>>>>>>> View all films
 /films/{id}                                 >>>>>>>>> View a film by entering the film ID into the url
-/films/filmID                               >>>>>>>>> View a film by ID using a request parameter
+/films/filmID                               >>>>>>>>> View a film by ID using a request parameter (int id)
 /films/{title}                              >>>>>>>>> View a film by entering the title into the url
 /films/get_by_category                      >>>>>>>>> View all films inside a specific category using request parameter (String category)
 /films/category/{category}                  >>>>>>>>> View all films inside a specific category using the url
@@ -28,9 +28,15 @@ _________________________________________URL PATHS______________________________
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories
 /category/{id}                              >>>>>>>>> View a category by searching for the ID in the url
-/category/categoryID                        >>>>>>>>> Get a category ID using a request parameter
+/category/categoryID                        >>>>>>>>> Get a category ID using a request parameter (int id)
+/category/cat/{name}                        >>>>>>>>> Get category information based on the category name
+/category/category                          >>>>>>>>> Get category information based on the category request parameter (String name)
+/category/add                               >>>>>>>>> Add an extra category to the database using a request parameter (String name)
+/category/delete/id/{id}                    >>>>>>>>> Delete a category by entering the ID into the url
+/category/delete/name    (not working)      >>>>>>>>> Delete a category by using a request parameter (string name)
+/category/update/name                       >>>>>>>>> Update a category record to change the name using request ID (int id, String name)
 
 ----------CUSTOMER---------
 /customer/all                               >>>>>>>>> View all of the customers
 /customer/{id}                              >>>>>>>>> View a customer by searching for the ID in the url
-/customer/ID                                >>>>>>>>> Get a customer ID using a request parameter
+/customer/ID                                >>>>>>>>> Get a customer ID using a request parameter (int id)

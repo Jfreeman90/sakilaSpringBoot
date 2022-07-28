@@ -29,6 +29,11 @@ public class Category {
     //empty constructor
     public Category() {}
 
+    //constructor to make a new category name
+    public Category(String name) {
+        this.name = name;
+    }
+
     //getters and setters
     public int getCategoryId() {return categoryId;}
 
