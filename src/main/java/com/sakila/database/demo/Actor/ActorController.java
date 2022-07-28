@@ -1,8 +1,6 @@
 package com.sakila.database.demo.Actor;
 
-import com.sakila.database.demo.Film.Film;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -82,8 +80,8 @@ public class ActorController {
         return "deleted";
     }
 
-    //update actor by ID input first name using url
-    @PatchMapping(path = "/update/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
+    //update actor first name by ID input first name using url
+    @PatchMapping(path = "/update/firstname/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {
         try {
             Actor actor = actorRepository.findById(id).orElse(null);
@@ -95,6 +93,57 @@ public class ActorController {
         }
     }
 
+    //update actor first name by ID input first name by sending requests params
+    @PatchMapping(path = "/update/first_name", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Actor> updateActorFirstNameReq(@RequestParam int id, @RequestParam String firstname) {
+        try {
+            Actor actor = actorRepository.findById(id).orElse(null);
+            assert actor != null;
+            actor.setFirstName(firstname);
+            return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
+    //update actor last name by ID input first name using url
+    @PatchMapping(path = "/update/lastname/{id}/{lastname}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Actor> updateActorSecondName(@PathVariable int id, @PathVariable String lastname) {
+        try {
+            Actor actor = actorRepository.findById(id).orElse(null);
+            assert actor != null;
+            actor.setLastName(lastname);
+            return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
+    //update actor last name by ID input first by sending a request with params
+    @PatchMapping(path = "/update/last_name", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Actor> updateActorSecondNameReq(@RequestParam int id, @RequestParam String lastname) {
+        try {
+            Actor actor = actorRepository.findById(id).orElse(null);
+            assert actor != null;
+            actor.setLastName(lastname);
+            return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //update an actors first and last name by ID using request params
+    @PatchMapping(path = "/update/fullname", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Actor> updateActorFullNameReq(@RequestParam int id, @RequestParam String firstname, @RequestParam String lastname) {
+        try {
+            Actor actor = actorRepository.findById(id).orElse(null);
+            assert actor != null;
+            actor.setFirstName(firstname);
+            actor.setLastName(lastname);
+            return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
 }

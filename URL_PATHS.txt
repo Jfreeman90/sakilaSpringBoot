@@ -2,31 +2,35 @@ _________________________________________URL PATHS______________________________
 --------------------------------------------------------------------------------------------
 
 -----------ACTORS----------
-/actors/all                             >>>>>>>>> View all actors
-/actors/add/{first_name}_{last_name}    >>>>>>>>> Add an actor by entering first and last name in the url
-/actors/{id}                            >>>>>>>>> View an actor from their ID from url input
-/actors/actorID                         >>>>>>>>> View an actor from their ID using a request parameter look up
-/actors/firstname/{first_name}          >>>>>>>>> Look up an actor based on first name
-/actors/delete/{id}                     >>>>>>>>> Delete an actor using their ID in the url
-/actors/name/{firstname}_{lastname}     >>>>>>>>> Find an actor by first name and last name
-/actors/actorname                       >>>>>>>>> Find an actor by first name and last name using a request parameter
-/actors/update/{id}/{firstname}         >>>>>>>>> Change an actors first name based on their ID
+/actors/all                                 >>>>>>>>> View all actors
+/actors/add/{first_name}_{last_name}        >>>>>>>>> Add an actor by entering first and last name in the url
+/actors/{id}                                >>>>>>>>> View an actor from their ID from url input
+/actors/actorID                             >>>>>>>>> View an actor from their ID using a request parameter look up (int id)
+/actors/firstname/{first_name}              >>>>>>>>> Look up an actor based on first name
+/actors/delete/{id}                         >>>>>>>>> Delete an actor using their ID in the url
+/actors/name/{firstname}_{lastname}         >>>>>>>>> Find an actor by first name and last name
+/actors/actorname                           >>>>>>>>> Find an actor by first name and last name using a request parameter (String firstname, String lastname)
+/actors/update/firstname/{id}/{firstname}   >>>>>>>>> Change an actors first name based on their ID
+/actors/update/lastname/{id}/{lastname}     >>>>>>>>> Change last name of an actor based on their new ID
+/actors/update/first_name                   >>>>>>>>> Change the first name of an actor using request (int id, String firstname)
+/actors/update/last_name                    >>>>>>>>> Change the second name of an actor using request (int id, String lastname)
+/actors/update/fullname                     >>>>>>>>> Change first and last name of an actor using request (int id, String firstname, String, lastname)
 
 ------------FILMS----------
-/films/all                              >>>>>>>>> View all films
-/films/{id}                             >>>>>>>>> View a film by entering the film ID into the url
-/films/filmID                           >>>>>>>>> View a film by ID using a request parameter
-/films/{title}                          >>>>>>>>> View a film by entering the title into the url
-/films/get_by_category                  >>>>>>>>> View all films inside a specific category
-/films/category/{category}              >>>>>>>>> View all films inside a specific category using the url
-/films//delete/{id}                     >>>>>>>>> Delete a film using the film ID in the url
+/films/all                                  >>>>>>>>> View all films
+/films/{id}                                 >>>>>>>>> View a film by entering the film ID into the url
+/films/filmID                               >>>>>>>>> View a film by ID using a request parameter
+/films/{title}                              >>>>>>>>> View a film by entering the title into the url
+/films/get_by_category                      >>>>>>>>> View all films inside a specific category using request parameter (String category)
+/films/category/{category}                  >>>>>>>>> View all films inside a specific category using the url
+/films/delete/{id}                          >>>>>>>>> Delete a film using the film ID in the url
 
 ----------CATEGORY---------
-/category/all                           >>>>>>>>> View all of the categories
-/category/{id}                          >>>>>>>>> View a category by searching for the ID in the url
-/category/categoryID                    >>>>>>>>> Get a category ID using a request parameter
+/category/all                               >>>>>>>>> View all of the categories
+/category/{id}                              >>>>>>>>> View a category by searching for the ID in the url
+/category/categoryID                        >>>>>>>>> Get a category ID using a request parameter
 
 ----------CUSTOMER---------
-/customer/all                           >>>>>>>>> View all of the customers
-/customer/{id}                          >>>>>>>>> View a customer by searching for the ID in the url
-/customer/ID                            >>>>>>>>> Get a customer ID using a request parameter
+/customer/all                               >>>>>>>>> View all of the customers
+/customer/{id}                              >>>>>>>>> View a customer by searching for the ID in the url
+/customer/ID                                >>>>>>>>> Get a customer ID using a request parameter
