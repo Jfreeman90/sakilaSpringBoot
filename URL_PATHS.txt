@@ -10,6 +10,7 @@ _________________________________________URL PATHS______________________________
 /actors/delete/{id}                     >>>>>>>>> Delete an actor using their ID in the url
 /actors/name/{firstname}_{lastname}     >>>>>>>>> Find an actor by first name and last name
 /actors/actorname                       >>>>>>>>> Find an actor by first name and last name using a request parameter
+/actors/update/{id}/{firstname}         >>>>>>>>> Change an actors first name based on their ID
 
 ------------FILMS----------
 /films/all                              >>>>>>>>> View all films

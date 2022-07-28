@@ -2,6 +2,10 @@ package com.sakila.database.demo.Actor;
 
 import com.sakila.database.demo.Film.Film;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -78,5 +82,19 @@ public class ActorController {
         return "deleted";
     }
 
-    //update actor
+    //update actor by ID input first name using url
+    @PatchMapping(path = "/update/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {
+        try {
+            Actor actor = actorRepository.findById(id).orElse(null);
+            assert actor != null;
+            actor.setFirstName(firstname);
+            return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 }
