@@ -10,4 +10,7 @@ public interface ActorRepository extends CrudRepository<Actor, Integer> {
     //find list of actors that have a first name given as a string
     @Query(value = "SELECT * FROM actor WHERE first_name= ?1", nativeQuery = true)
     List<Actor> findByFirstName(String firstname);
+
+    //@Query(value = "SELECT * FROM actor WHERE first_name= ?1 AND last_name=?2", nativeQuery = true)
+    List<Actor> findByFirstNameAndLastName(String firstname, String lastname);
 }

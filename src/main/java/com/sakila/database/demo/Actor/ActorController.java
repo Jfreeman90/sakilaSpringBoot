@@ -1,5 +1,6 @@
 package com.sakila.database.demo.Actor;
 
+import com.sakila.database.demo.Film.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,6 +54,20 @@ public class ActorController {
     public @ResponseBody
     List<Actor> getActorByFirstName(@PathVariable(name="first_name") String firstname) {
         return actorRepository.findByFirstName(firstname.toUpperCase());
+    }
+
+    // get actor from first and last name by using the url
+    @GetMapping("/name/{firstname}_{lastname}")
+    public @ResponseBody
+    List<Actor> getActorByFirstLastNameURL(@PathVariable(name="firstname")  String firstname, @PathVariable(name="lastname") String lastname) {
+        return actorRepository.findByFirstNameAndLastName(firstname, lastname);
+    }
+
+    // get actor from first and last name by using a parameter request
+    @GetMapping("/actorname")
+    public @ResponseBody
+    List<Actor> getActorByFirstLastName(@RequestParam  String firstname, @RequestParam String lastname) {
+        return actorRepository.findByFirstNameAndLastName(firstname, lastname);
     }
 
     //Delete an actor from the actor table based on id

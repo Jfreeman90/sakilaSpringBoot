@@ -7,7 +7,9 @@ _________________________________________URL PATHS______________________________
 /actors/{id}                            >>>>>>>>> View an actor from their ID from url input
 /actors/actorID                         >>>>>>>>> View an actor from their ID using a request parameter look up
 /actors/firstname/{first_name}          >>>>>>>>> Look up an actor based on first name
-/delete/{id}                            >>>>>>>>> Delete an actor using their ID in the url
+/actors/delete/{id}                     >>>>>>>>> Delete an actor using their ID in the url
+/actors/name/{firstname}_{lastname}     >>>>>>>>> Find an actor by first name and last name
+/actors/actorname                       >>>>>>>>> Find an actor by first name and last name using a request parameter
 
 ------------FILMS----------
 /films/all                              >>>>>>>>> View all films
