@@ -1,7 +1,13 @@
 package com.sakila.database.demo.Category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sakila.database.demo.Film.Film;
+
 import javax.persistence.*;
 import java.security.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="category")
@@ -12,8 +18,13 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
     //attributes
+    @Column(name="name")
     private String name;
 
+    //connect category to films
+    @JsonIgnore
+    @ManyToMany(mappedBy = "filmCategory")
+    List<Film> films = new ArrayList<>();
 
     //empty constructor
     public Category() {}
@@ -31,6 +42,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 
     @Override

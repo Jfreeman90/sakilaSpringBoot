@@ -1,8 +1,14 @@
 package com.sakila.database.demo.Film;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sakila.database.demo.Actor.Actor;
+import com.sakila.database.demo.Category.Category;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 //class to deal with the actor objects withdrawn from the actor database.
 @Entity
@@ -13,19 +19,65 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int film_id;
 
+    //join each film to show its category in the film object
+    @ManyToMany
+    @JoinTable(
+            name = "film_category",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    List<Category> filmCategory = new ArrayList<>();
+
+    //connect films to actor
+    @JsonIgnore
+    @ManyToMany(mappedBy = "films")
+    List<Actor> actor = new ArrayList<>();
+
     //Attributes
+    @Column(name="title")
     private String title;
+    @Column(name="description")
     private String description;
-    private Integer release_year;
-    private Integer language_id;
-    private Integer original_language_id;
-    private Integer rental_duration;
-    private BigDecimal rental_rate;
+    @Column(name="release_year")
+    private Integer releaseYear;
+    @Column(name="language_id")
+    private Integer languageId;
+    @Column(name="original_language_id")
+    private Integer originalLanguageId;
+    @Column(name="rental_duration")
+    private Integer rentalDuration;
+    @Column(name="rental_rate")
+    private BigDecimal rentalRate;
+    @Column(name="length")
     private Integer length;
-    private BigDecimal replacement_cost;
+    @Column(name="replacement_cost")
+    private BigDecimal replacementCost;
+    @Column(name="rating")
     private String rating;
-    private String special_features;
-    private Timestamp last_update;
+    @Column(name="special_features")
+    private String specialFeatures;
+    @Column(name="last_update")
+    private Timestamp lastUpdate;
+
+    //constructor
+    public Film(int film_id, String title, String description, Integer releaseYear,
+                Integer languageId, Integer originalLanguageId, Integer rentalDuration,
+                BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating,
+                String specialFeatures, Timestamp lastUpdate) {
+        this.film_id = film_id;
+        this.title = title;
+        this.description = description;
+        this.releaseYear = releaseYear;
+        this.languageId = languageId;
+        this.originalLanguageId = originalLanguageId;
+        this.rentalDuration = rentalDuration;
+        this.rentalRate = rentalRate;
+        this.length = length;
+        this.replacementCost = replacementCost;
+        this.rating = rating;
+        this.specialFeatures = specialFeatures;
+        this.lastUpdate = lastUpdate;
+    }
 
     //empty constructor
     public Film() {}
@@ -55,44 +107,44 @@ public class Film {
         this.description = description;
     }
 
-    public int getRelease_year() {
-        return release_year;
+    public Integer getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setRelease_year(int release_year) {
-        this.release_year = release_year;
+    public void setReleaseYear(Integer releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
-    public Integer getLanguage_id() {
-        return language_id;
+    public Integer getLanguageId() {
+        return languageId;
     }
 
-    public void setLanguage_id(Integer language_id) {
-        this.language_id = language_id;
+    public void setLanguageId(Integer languageId) {
+        this.languageId = languageId;
     }
 
-    public Integer getOriginal_language_id() {
-        return original_language_id;
+    public Integer getOriginalLanguageId() {
+        return originalLanguageId;
     }
 
-    public void setOriginal_language_id(Integer original_language_id) {
-        this.original_language_id = original_language_id;
+    public void setOriginalLanguageId(Integer originalLanguageId) {
+        this.originalLanguageId = originalLanguageId;
     }
 
-    public Integer getRental_duration() {
-        return rental_duration;
+    public Integer getRentalDuration() {
+        return rentalDuration;
     }
 
-    public void setRental_duration(Integer rental_duration) {
-        this.rental_duration = rental_duration;
+    public void setRentalDuration(Integer rentalDuration) {
+        this.rentalDuration = rentalDuration;
     }
 
-    public BigDecimal getRental_rate() {
-        return rental_rate;
+    public BigDecimal getRentalRate() {
+        return rentalRate;
     }
 
-    public void setRental_rate(BigDecimal rental_rate) {
-        this.rental_rate = rental_rate;
+    public void setRentalRate(BigDecimal rentalRate) {
+        this.rentalRate = rentalRate;
     }
 
     public Integer getLength() {
@@ -103,12 +155,12 @@ public class Film {
         this.length = length;
     }
 
-    public BigDecimal getReplacement_cost() {
-        return replacement_cost;
+    public BigDecimal getReplacementCost() {
+        return replacementCost;
     }
 
-    public void setReplacement_cost(BigDecimal replacement_cost) {
-        this.replacement_cost = replacement_cost;
+    public void setReplacementCost(BigDecimal replacementCost) {
+        this.replacementCost = replacementCost;
     }
 
     public String getRating() {
@@ -119,20 +171,36 @@ public class Film {
         this.rating = rating;
     }
 
-    public String getSpecial_features() {
-        return special_features;
+    public String getSpecialFeatures() {
+        return specialFeatures;
     }
 
-    public void setSpecial_features(String special_features) {
-        this.special_features = special_features;
+    public void setSpecialFeatures(String specialFeatures) {
+        this.specialFeatures = specialFeatures;
     }
 
-    public Timestamp getLast_update() {
-        return last_update;
+    public Timestamp getLastUpdate() {
+        return lastUpdate;
     }
 
-    public void setLast_update(Timestamp last_update) {
-        this.last_update = last_update;
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public List<Category> getFilmCategory() {
+        return filmCategory;
+    }
+
+    public void setFilmCategory(List<Category> filmCategory) {
+        this.filmCategory = filmCategory;
+    }
+
+    public List<Actor> getActor() {
+        return actor;
+    }
+
+    public void setActor(List<Actor> actor) {
+        this.actor = actor;
     }
 
     @Override
@@ -141,16 +209,16 @@ public class Film {
                 "film_id=" + film_id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", release_year=" + release_year +
-                ", language_id=" + language_id +
-                ", original_language_id=" + original_language_id +
-                ", rental_duration=" + rental_duration +
-                ", rental_rate=" + rental_rate +
+                ", releaseYear=" + releaseYear +
+                ", languageId=" + languageId +
+                ", originalLanguageId=" + originalLanguageId +
+                ", rentalDuration=" + rentalDuration +
+                ", rentalRate=" + rentalRate +
                 ", length=" + length +
-                ", replacement_cost=" + replacement_cost +
+                ", replacementCost=" + replacementCost +
                 ", rating='" + rating + '\'' +
-                ", special_features='" + special_features + '\'' +
-                ", last_update=" + last_update +
+                ", specialFeatures='" + specialFeatures + '\'' +
+                ", lastUpdate=" + lastUpdate +
                 '}';
     }
 }

@@ -17,6 +17,15 @@ public class ActorController {
         this.actorRepository = actorRepository;
     }
 
+
+    //Get request for all actors
+    @GetMapping("/all")
+    public @ResponseBody
+    Iterable<Actor> getAllActors() {
+        return actorRepository.findAll();
+    }
+
+
     //Post request to add new actor to the actor table
     @PostMapping("/add/{first_name}_{last_name}")
     public @ResponseBody
@@ -24,13 +33,6 @@ public class ActorController {
         Actor actor = new Actor(first_name, last_name);
         actorRepository.save(actor);
         return "Saved";
-    }
-
-    //Get request for all actors
-    @GetMapping("/all")
-    public @ResponseBody
-    Iterable<Actor> getAllActors() {
-        return actorRepository.findAll();
     }
 
     //Get request for a specific actor based on the id
@@ -60,4 +62,6 @@ public class ActorController {
         actorRepository.deleteById(id);
         return "deleted";
     }
+
+    //update actor
 }

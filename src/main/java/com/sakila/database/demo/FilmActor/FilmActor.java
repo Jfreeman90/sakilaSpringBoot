@@ -12,6 +12,7 @@ public class FilmActor {
     @Id
     @Column(name = "actor_id")
     private int actorId;
+    @Column(name = "film_id")
     private int filmId;
 
     //constructor
