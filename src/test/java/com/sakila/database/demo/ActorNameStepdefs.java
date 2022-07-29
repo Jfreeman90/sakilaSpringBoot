@@ -24,8 +24,8 @@ public class ActorNameStepdefs {
         actor= new Actor(firstName,lastName);
     }
 
-    @Then("I should be get James bean from the getter")
-    public void I_should_be_get_James_bean_from_the_getter(){
+    @Then("I should be get James Bean from the getter")
+    public void I_should_be_get_James_Bean_from_the_getter(){
         assertEquals("JAMES", actor.getFirstName());
         assertEquals("BEAN",actor.getLastName());
     }
