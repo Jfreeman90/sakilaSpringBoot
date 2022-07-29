@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateActorNameStepdefs {
-    //create the variables that will be needed to store
+    //create the variables that will be needed
     private Actor jamesBean;
     private Actor richardCrane;
 
