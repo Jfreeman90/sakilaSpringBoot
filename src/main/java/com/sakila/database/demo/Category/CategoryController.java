@@ -58,7 +58,7 @@ public class CategoryController {
     String addNewCategory(@RequestParam String name){
         Category category = new Category(name);
         categoryRepository.save(category);
-        return "Saved" + name;
+        return "Saved";
     }
 
     //Delete a category from the category table based on id

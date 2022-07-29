@@ -43,7 +43,7 @@ public class LanguageController {
     String addNewLanguage(@RequestParam String name){
         Language language = new Language(name);
         languageRepository.save(language);
-        return "Saved " + name;
+        return "Saved";
     }
 
     //Delete a language from the language table based on id
