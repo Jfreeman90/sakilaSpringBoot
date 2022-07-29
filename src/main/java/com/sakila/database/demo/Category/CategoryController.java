@@ -63,7 +63,7 @@ public class CategoryController {
         return "Saved" + name;
     }
 
-    //Delete a category from the actor table based on id
+    //Delete a category from the category table based on id
     @DeleteMapping("/delete/id/{id}")
     public @ResponseBody
     String deleteCategoryById(@PathVariable(name="id") int id){

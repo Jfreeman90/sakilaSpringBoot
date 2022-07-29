@@ -40,3 +40,10 @@ _________________________________________URL PATHS______________________________
 /customer/all                               >>>>>>>>> View all of the customers
 /customer/{id}                              >>>>>>>>> View a customer by searching for the ID in the url
 /customer/ID                                >>>>>>>>> Get a customer ID using a request parameter (int id)
+
+----------LANGUAGE---------
+/language/all                               >>>>>>>>> View all of the languages
+/language/{id}                              >>>>>>>>> View a language by the ID in the url
+/language/language                          >>>>>>>>> Get language information based on the language request parameter (String name)
+/language/add                               >>>>>>>>> Add an extra language to the database using a request parameter (String name)
+/language/delete/id/{id}                    >>>>>>>>> Delete a language from the database using the language ID in the url
