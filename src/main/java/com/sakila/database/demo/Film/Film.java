@@ -3,6 +3,7 @@ package com.sakila.database.demo.Film;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sakila.database.demo.Actor.Actor;
 import com.sakila.database.demo.Category.Category;
+import com.sakila.database.demo.Language.Language;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -33,7 +34,14 @@ public class Film {
     @ManyToMany(mappedBy = "films")
     List<Actor> actor = new ArrayList<>();
 
-    //Attributes
+
+    //join each film to show its language in the film object
+    @ManyToOne
+    @JoinColumn(name="language_id", nullable=false, insertable = false, updatable = false)
+    private Language language;
+
+
+    // Attributes
     @Column(name="title")
     private String title;
     @Column(name="description")
@@ -42,8 +50,6 @@ public class Film {
     private Integer releaseYear;
     @Column(name="language_id")
     private Integer languageId;
-    @Column(name="original_language_id")
-    private Integer originalLanguageId;
     @Column(name="rental_duration")
     private Integer rentalDuration;
     @Column(name="rental_rate")
@@ -56,27 +62,24 @@ public class Film {
     private String rating;
     @Column(name="special_features")
     private String specialFeatures;
-    @Column(name="last_update")
-    private Timestamp lastUpdate;
+
 
     //constructor
     public Film(int film_id, String title, String description, Integer releaseYear,
-                Integer languageId, Integer originalLanguageId, Integer rentalDuration,
+                Integer languageId, Integer rentalDuration,
                 BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating,
-                String specialFeatures, Timestamp lastUpdate) {
+                String specialFeatures) {
         this.film_id = film_id;
         this.title = title;
         this.description = description;
         this.releaseYear = releaseYear;
         this.languageId = languageId;
-        this.originalLanguageId = originalLanguageId;
         this.rentalDuration = rentalDuration;
         this.rentalRate = rentalRate;
         this.length = length;
         this.replacementCost = replacementCost;
         this.rating = rating;
         this.specialFeatures = specialFeatures;
-        this.lastUpdate = lastUpdate;
     }
 
     //empty constructor
@@ -123,13 +126,6 @@ public class Film {
         this.languageId = languageId;
     }
 
-    public Integer getOriginalLanguageId() {
-        return originalLanguageId;
-    }
-
-    public void setOriginalLanguageId(Integer originalLanguageId) {
-        this.originalLanguageId = originalLanguageId;
-    }
 
     public Integer getRentalDuration() {
         return rentalDuration;
@@ -179,14 +175,6 @@ public class Film {
         this.specialFeatures = specialFeatures;
     }
 
-    public Timestamp getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(Timestamp lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
     public List<Category> getFilmCategory() {
         return filmCategory;
     }
@@ -203,6 +191,14 @@ public class Film {
         this.actor = actor;
     }
 
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
@@ -211,14 +207,12 @@ public class Film {
                 ", description='" + description + '\'' +
                 ", releaseYear=" + releaseYear +
                 ", languageId=" + languageId +
-                ", originalLanguageId=" + originalLanguageId +
                 ", rentalDuration=" + rentalDuration +
                 ", rentalRate=" + rentalRate +
                 ", length=" + length +
                 ", replacementCost=" + replacementCost +
                 ", rating='" + rating + '\'' +
                 ", specialFeatures='" + specialFeatures + '\'' +
-                ", lastUpdate=" + lastUpdate +
                 '}';
     }
 }

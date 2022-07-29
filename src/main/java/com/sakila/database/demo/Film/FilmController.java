@@ -65,6 +65,13 @@ public class FilmController {
         return filmRepository.findByFilmCategory_Name(category);
     }
 
+    // get films by category using request param
+    @GetMapping("/get_by_language")
+    public @ResponseBody
+    List<Film> getFilmsByLanguage(@RequestParam String language) {
+        return filmRepository.findByLanguage_Name(language);
+    }
+
     //add film
 
     //Delete a film from the film table based on id

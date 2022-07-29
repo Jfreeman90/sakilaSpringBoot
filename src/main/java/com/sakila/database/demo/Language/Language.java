@@ -1,7 +1,12 @@
 package com.sakila.database.demo.Language;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sakila.database.demo.Film.Film;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="language")
@@ -15,6 +20,7 @@ public class Language {
     //attributes
     @Column(name="name")
     private String name;
+
 
     //Constructor
     public Language() {
@@ -41,6 +47,7 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
+
 
     @Override
     public String toString() {

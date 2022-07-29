@@ -24,6 +24,7 @@ _________________________________________URL PATHS______________________________
 /films/get_by_category                      >>>>>>>>> View all films inside a specific category using request parameter (String category)
 /films/category/{category}                  >>>>>>>>> View all films inside a specific category using the url
 /films/delete/{id}                          >>>>>>>>> Delete a film using the film ID in the url
+/films/get_by_language                      >>>>>>>>> View all films that have the same language using request parameter (String language)
 
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories
@@ -33,7 +34,6 @@ _________________________________________URL PATHS______________________________
 /category/category                          >>>>>>>>> Get category information based on the category request parameter (String name)
 /category/add                               >>>>>>>>> Add an extra category to the database using a request parameter (String name)
 /category/delete/id/{id}                    >>>>>>>>> Delete a category by entering the ID into the url
-/category/delete/name    (not working)      >>>>>>>>> Delete a category by using a request parameter (string name)
 /category/update/name                       >>>>>>>>> Update a category record to change the name using request ID (int id, String name)
 
 ----------CUSTOMER---------

@@ -1,7 +1,5 @@
 package com.sakila.database.demo.Category;
 
-import com.sakila.database.demo.Actor.Actor;
-import com.sakila.database.demo.Film.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -70,17 +68,6 @@ public class CategoryController {
         categoryRepository.deleteById(id);
         return "deleted";
     }
-
-    /*delete a category based on name as a request parameter
-    @DeleteMapping("/delete/name")
-    public @ResponseBody
-    String deleteCategoryByName(@RequestParam String name){
-        Category category = (Category) categoryRepository.findByName(name);
-        categoryRepository.deleteById(category.getCategoryId());
-        return "deleted"+name;
-    }
-
-     */
 
     //update a current category to a new name by using its ID
     @PatchMapping(path = "/update/name", produces = MediaType.APPLICATION_JSON_VALUE)
