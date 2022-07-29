@@ -37,19 +37,37 @@ public class FilmController {
         return filmRepository.findById(id);
     }
 
-    //get film details from name
+    //get film details from title
     @GetMapping("/film/{title}")
     public @ResponseBody
     List<Film> getFilmByTitle(@PathVariable(name="title") String title){
         return filmRepository.findByTitleIgnoreCase(title);
     }
 
-    //get film details from name
+    //get film details from title
     @GetMapping("/film")
     public @ResponseBody
     List<Film> filmByTitle(@RequestParam String title){
         return filmRepository.findByTitleIgnoreCase(title);
     }
+
+    //get film details from a query that matches a particular string
+    @GetMapping("/find_containing")
+    public @ResponseBody
+    List<Film> findTitlesContaining(@RequestParam String titleString){
+        return filmRepository.findByTitleContainingIgnoreCase(titleString);
+    }
+
+    /* -------ACTORS ARENT LINKED TO FILMS YET----------
+    //get film details from a query that uses an actors first name
+    @GetMapping("/film_with_actor_firstname")
+    public @ResponseBody
+    List<Film> findFilmsWithActorFirstName(@RequestParam String firstname){
+        return filmRepository.findByActor_FirstName(firstname);
+    }
+
+     */
+
 
     // get films by category using request param
     @GetMapping("/get_by_category")

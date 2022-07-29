@@ -73,6 +73,13 @@ public class ActorController {
         return actorRepository.findByFirstNameAndLastName(firstname, lastname);
     }
 
+    //get all of the actors that were in a film title
+    @GetMapping("/find_actors_in_film")
+    public @ResponseBody
+    Iterable<Actor> findActorsInFilm(@RequestParam String title){
+        return actorRepository.findByFilms_Title(title);
+    }
+
     //Delete an actor from the actor table based on id
     @DeleteMapping("/delete/{id}")
     public @ResponseBody
@@ -151,5 +158,5 @@ public class ActorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
 }
