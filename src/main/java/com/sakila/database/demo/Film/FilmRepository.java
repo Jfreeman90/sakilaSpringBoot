@@ -11,7 +11,6 @@ public interface FilmRepository extends CrudRepository<Film, Integer> {
 
     List<Film> findByLanguage_Name(String name);
     List<Film> findByFilmCategory_Name(String name);
-    List<Film> findByActor_FirstName(String firstname);
 
 }
 

@@ -10,7 +10,7 @@ _________________________________________URL PATHS______________________________
 /actors/delete/{id}                         >>>>>>>>> Delete an actor using their ID in the url
 /actors/name/{firstname}_{lastname}         >>>>>>>>> Find an actor by first name and last name
 /actors/actorname                           >>>>>>>>> Find an actor by first name and last name using a request parameter (String firstname, String lastname)
-/actors/find_actors_in_film                 >>>>>>>>> Find all of the acotrs that have been in a film title given a request parameter (String title)
+/actors/find_actors_in_film                 >>>>>>>>> Find all of the actors that have been in a film title given a request parameter (String title)
 /actors/update/firstname/{id}/{firstname}   >>>>>>>>> Change an actors first name based on their ID
 /actors/update/lastname/{id}/{lastname}     >>>>>>>>> Change last name of an actor based on their new ID
 /actors/update/first_name                   >>>>>>>>> Change the first name of an actor using request (int id, String firstname)

@@ -10,42 +10,59 @@ public class Customer {
     @Id
     @Column(name="customer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customer_id;
+    private int customerId;
     //attributes
-    private String first_name;
-    private String last_name;
+    @Column(name="first_name")
+    private String firstName;
+    @Column(name="last_name")
+    private String lastName;
+    @Column(name="email")
     private String email;
+    @Column(name="active")
     private byte active;
+    @Column(name="store_id")
+    private int storeId;
+    @Column(name="address_id")
+    private int addressId;
     //private Timestamp create_date;
     //private Timestamp last_update;
 
     //constructor
     public Customer(){}
 
-
-    //getters and setters
-    public int getCustomer_id() {
-        return customer_id;
+    //add a customer constuctor for an online customer creation
+    public Customer(String firstName, String lastName, String email){
+     this.firstName=firstName;
+     this.lastName=lastName;
+     this.email=email;
+     //set active to 1 when account is created.
+     this.active=1;
+     //set store id to 3 if the account has been set up/used online
+     this.storeId=3;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -64,14 +81,32 @@ public class Customer {
         this.active = active;
     }
 
+    public int getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(int storeId) {
+        this.storeId = storeId;
+    }
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "customer_id=" + customer_id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                "customerId=" + customerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", active=" + active +
+                ", storeId=" + storeId +
+                ", addressId=" + addressId +
                 '}';
     }
 }

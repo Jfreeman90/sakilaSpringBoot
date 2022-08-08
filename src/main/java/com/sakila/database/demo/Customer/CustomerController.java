@@ -1,4 +1,5 @@
 package com.sakila.database.demo.Customer;
+import com.sakila.database.demo.Actor.Actor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,10 +29,19 @@ public class CustomerController {
         return customerRepository.findById(id);
     }
 
-    //Get request for a specific customer using a request paramater instead of a fixed url look up.
+    //Get request for a specific customer using a request parameter instead of a fixed url look up.
     @GetMapping("/ID")
     public @ResponseBody Optional<Customer> customerById(@RequestParam int id){
         return customerRepository.findById(id);
+    }
+
+    //add a new customer
+    @PostMapping("/add")
+    public @ResponseBody
+    String addNewCustomer(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email){
+        Customer customer = new Customer(firstName, lastName, email);
+        customerRepository.save(customer);
+        return "Saved";
     }
 
 }
