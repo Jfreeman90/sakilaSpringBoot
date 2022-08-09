@@ -35,9 +35,11 @@ public class Actor {
         this.lastName = lastName;
     }
 
+    //constructors
     public Actor() {
     }
 
+    //getters and setters
     public int getActorId() {
         return actorId;
     }
@@ -69,7 +71,6 @@ public class Actor {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 
     @Override
     public String toString() {
