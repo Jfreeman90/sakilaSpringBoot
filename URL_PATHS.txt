@@ -4,6 +4,7 @@ _________________________________________URL PATHS______________________________
 -----------ACTORS----------
 /actors/all                                 >>>>>>>>> View all actors
 /actors/add/{first_name}_{last_name}        >>>>>>>>> Add an actor by entering first and last name in the url
+/actors/add_actor                           >>>>>>>>> Add an actor by using request parameters (String firstname, String lastname)
 /actors/{id}                                >>>>>>>>> View an actor from their ID from url input
 /actors/actorID                             >>>>>>>>> View an actor from their ID using a request parameter look up (int id)
 /actors/firstname/{first_name}              >>>>>>>>> Look up an actor based on first name

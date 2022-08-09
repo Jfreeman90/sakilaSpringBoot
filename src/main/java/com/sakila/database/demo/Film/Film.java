@@ -19,26 +19,10 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int film_id;
 
-    //join each film to show its category in the film object
-    @ManyToMany
-    @JoinTable(
-            name = "film_category",
-            joinColumns = @JoinColumn(name = "film_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
-    List<Category> filmCategory = new ArrayList<>();
-
     //connect films to actor
     @JsonIgnore
     @ManyToMany(mappedBy = "films")
     List<Actor> actor = new ArrayList<>();
-
-
-    //join each film to show its language in the film object
-    @ManyToOne
-    @JoinColumn(name="language_id", nullable=false, insertable = false, updatable = false)
-    private Language language;
-
 
     // Attributes
     @Column(name="title")
@@ -49,6 +33,10 @@ public class Film {
     private Integer releaseYear;
     @Column(name="language_id")
     private Integer languageId;
+    //join each film to show its language in the film object
+    @ManyToOne
+    @JoinColumn(name="language_id", nullable=false, insertable = false, updatable = false)
+    private Language language;
     @Column(name="rental_duration")
     private Integer rentalDuration;
     @Column(name="rental_rate")
@@ -62,6 +50,14 @@ public class Film {
     @Column(name="special_features")
     private String specialFeatures;
 
+    //join each film to show its category in the film object
+    @ManyToMany
+    @JoinTable(
+            name = "film_category",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    List<Category> filmCategory = new ArrayList<>();
 
     //constructor
     public Film(int film_id, String title, String description, Integer releaseYear,

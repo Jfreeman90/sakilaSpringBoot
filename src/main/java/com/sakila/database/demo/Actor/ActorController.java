@@ -15,12 +15,10 @@ import java.util.Optional;
 public class ActorController {
 
     public ActorRepository actorRepository;
-
     @Autowired
     public void ActorController(ActorRepository actorRepository) {
         this.actorRepository = actorRepository;
     }
-
 
     //Get request for all actors
     @GetMapping("/all")
@@ -29,12 +27,20 @@ public class ActorController {
         return actorRepository.findAll();
     }
 
-
     //Post request to add new actor to the actor table
     @PostMapping("/add/{first_name}_{last_name}")
     public @ResponseBody
     String addNewActor(@PathVariable(name="first_name") String first_name, @PathVariable(name="last_name") String last_name){
         Actor actor = new Actor(first_name, last_name);
+        actorRepository.save(actor);
+        return "Saved";
+    }
+
+    //Post request to add new actor to the actor table using request params
+    @PostMapping("/add_actor")
+    public @ResponseBody
+    String addNewActorReq(@RequestParam String firstName, @RequestParam String lastName){
+        Actor actor = new Actor(firstName, lastName);
         actorRepository.save(actor);
         return "Saved";
     }
@@ -69,7 +75,7 @@ public class ActorController {
     // get actor from first and last name by using a parameter request
     @GetMapping("/actorname")
     public @ResponseBody
-    List<Actor> getActorByFirstLastName(@RequestParam  String firstname, @RequestParam String lastname) {
+    List<Actor> getActorByFirstLastName(@RequestParam String firstname, @RequestParam String lastname) {
         return actorRepository.findByFirstNameAndLastName(firstname, lastname);
     }
 

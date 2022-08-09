@@ -1,5 +1,5 @@
 package com.sakila.database.demo.Actor;
-import com.sakila.database.demo.Film.Film;
+import com.sakila.database.demo.Film.FilmInfo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +14,12 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actorId;
 
+    //Attributes
+    @Column(name="first_name")
+    private String firstName;
+    @Column(name="last_name")
+    private String lastName;
+
     //join each actor to a list of films theyve been in
     @ManyToMany
     @JoinTable(
@@ -21,13 +27,7 @@ public class Actor {
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id")
     )
-    List<Film> films = new ArrayList<>();
-
-    //Attributes
-    @Column(name="first_name")
-    private String firstName;
-    @Column(name="last_name")
-    private String lastName;
+    List<FilmInfo> films = new ArrayList<>();
 
     //generators
     public Actor(String firstName, String lastName) {
@@ -46,11 +46,11 @@ public class Actor {
         this.actorId = actorId;
     }
 
-    public List<Film> getFilms() {
+    public List<FilmInfo> getFilms() {
         return films;
     }
 
-    public void setFilms(List<Film> films) {
+    public void setFilms(List<FilmInfo> films) {
         this.films = films;
     }
 
@@ -69,6 +69,7 @@ public class Actor {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
     @Override
     public String toString() {
