@@ -1,5 +1,4 @@
 package com.sakila.database.demo.Category;
-import com.sakila.database.demo.Film.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

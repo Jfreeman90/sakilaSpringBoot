@@ -1,9 +1,5 @@
 package com.sakila.database.demo.Category;
-
-import com.sakila.database.demo.Film.Film;
-
 import javax.persistence.*;
-import java.security.Timestamp;
 
 @Entity
 @Table(name="film_category")
@@ -15,8 +11,10 @@ public class FilmCategory {
     @Column(name="category_id")
     private int categoryId;
 
+    //constructor
     public FilmCategory() {}
 
+    //getters and setters
     public int getFilmId() {
         return filmId;
     }

@@ -22,14 +22,4 @@ public class FilmActorController {
         return filmActorRepository.findAll();
     }
 
-
-    /*Get request for all films found by an actor id
-    @GetMapping("/{id}")
-    public @ResponseBody
-    Optional<FilmActor> getFilmsByActorId(@PathVariable(name="id") int id) {
-        return filmActorRepository.findById(id);
-    }
-
-     */
-
 }

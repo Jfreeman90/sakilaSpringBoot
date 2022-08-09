@@ -1,7 +1,6 @@
 package com.sakila.database.demo.Customer;
-
 import javax.persistence.*;
-import java.security.Timestamp;
+
 
 @Entity
 @Table(name="customer")
@@ -24,8 +23,6 @@ public class Customer {
     private int storeId;
     @Column(name="address_id")
     private int addressId;
-    //private Timestamp create_date;
-    //private Timestamp last_update;
 
     //constructor
     public Customer(){}
@@ -45,6 +42,7 @@ public class Customer {
         return customerId;
     }
 
+    //getters and setters
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
