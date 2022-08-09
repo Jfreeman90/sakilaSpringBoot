@@ -16,4 +16,8 @@ public interface ActorRepository extends CrudRepository<Actor, Integer> {
 
     //return actors that are in a particular film
     List<Actor> findByFilms_Title(String title);
+
+    //return an actor whos name is half containing
+    List<Actor> findByFirstNameContainingIgnoreCase(String nameString);
+    List<Actor> findByLastNameContainingIgnoreCase(String nameString);
 }

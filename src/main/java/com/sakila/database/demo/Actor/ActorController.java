@@ -61,9 +61,24 @@ public class ActorController {
     //Get request to return actor details based on name
     @GetMapping("/firstname/{first_name}")
     public @ResponseBody
-    List<Actor> getActorByFirstName(@PathVariable(name="first_name") String firstname) {
-        return actorRepository.findByFirstName(firstname.toUpperCase());
+    List<Actor> getActorByFirstName(@PathVariable(name="first_name") String firstName) {
+        return actorRepository.findByFirstName(firstName.toUpperCase());
     }
+
+    //Get request to return actor details if the first names contain a partial string
+    @GetMapping("/firstname_search")
+    public @ResponseBody
+    List<Actor> getActorByPartialFirstName(@RequestParam String partialFirstName) {
+        return actorRepository.findByFirstNameContainingIgnoreCase(partialFirstName);
+    }
+
+    //Get request to return actor details if the last names contain a partial string
+    @GetMapping("/lastname_search")
+    public @ResponseBody
+    List<Actor> getActorByPartialLastName(@RequestParam String partialLastName) {
+        return actorRepository.findByLastNameContainingIgnoreCase(partialLastName);
+    }
+
 
     // get actor from first and last name by using the url
     @GetMapping("/name/{firstname}_{lastname}")
