@@ -56,6 +56,8 @@ _________________________________________URL PATHS______________________________
 ----------ADDRESS----------
 /address/all                                >>>>>>>>> View all of addresses
 /address/{id}                               >>>>>>>>> View all address information for the ID in the url
+/address/get_by_city                        >>>>>>>>> Find all address' that are from a city request parameter (String city)
+/address/get_by_country                     >>>>>>>>> Find all address' that are from a country request parameter (String country)
 
 ------------CITY-----------
 /city/all                                   >>>>>>>>> View all of the cities

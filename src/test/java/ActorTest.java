@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ActorTest {
-    //test for all actor and film getters and setters
+    //test for all actor getters and setters
     @Test
     void test_actorID(){
         Actor testActor = new Actor();
