@@ -52,3 +52,17 @@ _________________________________________URL PATHS______________________________
 /language/language                          >>>>>>>>> Get language information based on the language request parameter (String name)
 /language/add                               >>>>>>>>> Add an extra language to the database using a request parameter (String name)
 /language/delete/id/{id}                    >>>>>>>>> Delete a language from the database using the language ID in the url
+
+----------ADDRESS----------
+/address/all                                >>>>>>>>> View all of addresses
+/address/{id}                               >>>>>>>>> View all address information for the ID in the url
+
+------------CITY-----------
+/city/all                                   >>>>>>>>> View all of the cities
+/city/{id}                                  >>>>>>>>> View city information for the ID in the url
+/city/city/{name}                           >>>>>>>>> View a city by searching for the name
+
+----------COUNTRY----------
+/country/all                                >>>>>>>>> View all of the countries
+/country/{id}                               >>>>>>>>> View country information for the ID in the url
+/country/country/{name}                     >>>>>>>>> View a country by searching for the name
