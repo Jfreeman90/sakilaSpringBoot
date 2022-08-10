@@ -14,7 +14,7 @@ public class Address {
     @Column(name="address")
     private String address;
 
-    //join each adress to show its city and therefore its country
+    //join each address to show its city and therefore its country
     @ManyToOne
     @JoinColumn(name="city_id", nullable=false, insertable = false, updatable = false)
     private City city;
