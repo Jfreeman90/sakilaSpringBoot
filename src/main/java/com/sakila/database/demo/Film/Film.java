@@ -17,7 +17,7 @@ public class Film {
     @Id
     @Column(name="film_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int film_id;
+    private int filmId;
 
     //connect films to actor
     @JsonIgnore
@@ -67,11 +67,11 @@ public class Film {
     List<Category> filmCategory = new ArrayList<>();
 
     //constructor for a film with all values.
-    public Film(int film_id, String title, String description, Integer releaseYear,
+    public Film(int filmId, String title, String description, Integer releaseYear,
                 Integer languageId, Integer rentalDuration,
                 BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating,
                 String specialFeatures, long scoreTotal, long scoreCount) {
-        this.film_id = film_id;
+        this.filmId = filmId;
         this.title = title;
         this.description = description;
         this.releaseYear = releaseYear;
@@ -91,12 +91,12 @@ public class Film {
     public Film() {}
 
     //getters and setters
-    public int getFilm_id() {
-        return film_id;
+    public int getFilmId() {
+        return filmId;
     }
 
-    public void setFilm_id(int film_id) {
-        this.film_id = film_id;
+    public void setFilmId(int filmId) {
+        this.filmId = filmId;
     }
 
     public String getTitle() {
@@ -230,7 +230,7 @@ public class Film {
     @Override
     public String toString() {
         return "Film{" +
-                "film_id=" + film_id +
+                "film_id=" + filmId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseYear=" + releaseYear +

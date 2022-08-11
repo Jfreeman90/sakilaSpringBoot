@@ -23,12 +23,6 @@ public class FilmInfo {
     public FilmInfo() {
     }
 
-    public FilmInfo(int filmId, String title, Integer releaseYear) {
-        this.filmId = filmId;
-        this.title = title;
-        this.releaseYear = releaseYear;
-    }
-
     //getters and setters
     public int getFilmId() {
         return filmId;

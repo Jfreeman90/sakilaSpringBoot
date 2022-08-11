@@ -6,6 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FilmTest {
     //test every getter and setter inside the film class.
     @Test
+    void test_setFilmId(){
+        Film testFilm = new Film();
+        testFilm.setFilmId(546);
+        assertEquals(546, testFilm.getFilmId(), "Expected to return 546 and didnt");
+    }
+
+    @Test
     void test_setFilmTitle(){
         Film testFilm= new Film();
         testFilm.setTitle("INCREDIBLE HULK");
