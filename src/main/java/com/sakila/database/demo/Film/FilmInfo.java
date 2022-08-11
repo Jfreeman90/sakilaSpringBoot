@@ -1,10 +1,7 @@
 package com.sakila.database.demo.Film;
-
 import javax.persistence.*;
 
-/*
-    Contains only some columns of film information needed when an actor list contains films they have been in.
- */
+//Contains only some columns of film information needed when an actor list contains films they have been in.
 @Entity
 @Table(name="film")
 public class FilmInfo {
@@ -18,6 +15,9 @@ public class FilmInfo {
 
     @Column(name="release_year")
     private Integer releaseYear;
+
+    @Column(name="score")
+    private Double score;
 
     //constructors
     public FilmInfo() {
@@ -38,9 +38,7 @@ public class FilmInfo {
         this.filmId = filmId;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() {return title;}
 
     public void setTitle(String title) {
         this.title = title;
@@ -54,12 +52,21 @@ public class FilmInfo {
         this.releaseYear = releaseYear;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "FilmInfo{" +
                 "filmId=" + filmId +
                 ", title='" + title + '\'' +
                 ", releaseYear=" + releaseYear +
+                ", score=" + score +
                 '}';
     }
 }

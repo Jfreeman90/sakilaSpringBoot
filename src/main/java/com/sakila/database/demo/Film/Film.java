@@ -49,6 +49,13 @@ public class Film {
     private String rating;
     @Column(name="special_features")
     private String specialFeatures;
+    //two new columns to keep track of score and score submitted for a film to work out an average
+    @Column(name="score")
+    private Double score;
+    @Column(name="score_count")
+    private Long scoreCount;
+    @Column(name="score_total")
+    private Long scoreTotal;
 
     //join each film to show its category in the film object
     @ManyToMany
@@ -59,11 +66,11 @@ public class Film {
     )
     List<Category> filmCategory = new ArrayList<>();
 
-    //constructor
+    //constructor for a film with all values.
     public Film(int film_id, String title, String description, Integer releaseYear,
                 Integer languageId, Integer rentalDuration,
                 BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating,
-                String specialFeatures) {
+                String specialFeatures, long scoreTotal, long scoreCount) {
         this.film_id = film_id;
         this.title = title;
         this.description = description;
@@ -75,6 +82,9 @@ public class Film {
         this.replacementCost = replacementCost;
         this.rating = rating;
         this.specialFeatures = specialFeatures;
+        this.scoreTotal=scoreTotal;
+        this.scoreCount=scoreCount;
+        this.score= (double) (scoreTotal / scoreCount);
     }
 
     //empty constructor
@@ -120,7 +130,6 @@ public class Film {
     public void setLanguageId(Integer languageId) {
         this.languageId = languageId;
     }
-
 
     public Integer getRentalDuration() {
         return rentalDuration;
@@ -194,6 +203,30 @@ public class Film {
         this.language = language;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    public Long getScoreCount() {
+        return scoreCount;
+    }
+
+    public void setScoreCount(Long scoreCount) {
+        this.scoreCount = scoreCount;
+    }
+
+    public Long getScoreTotal() {
+        return scoreTotal;
+    }
+
+    public void setScoreTotal(Long scoreTotal) {
+        this.scoreTotal = scoreTotal;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
@@ -201,13 +234,15 @@ public class Film {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseYear=" + releaseYear +
-                ", languageId=" + languageId +
                 ", rentalDuration=" + rentalDuration +
                 ", rentalRate=" + rentalRate +
                 ", length=" + length +
                 ", replacementCost=" + replacementCost +
                 ", rating='" + rating + '\'' +
                 ", specialFeatures='" + specialFeatures + '\'' +
+                ", score=" + score +
+                ", scoreCount=" + scoreCount +
+                ", scoreTotal=" + scoreTotal +
                 '}';
     }
 }

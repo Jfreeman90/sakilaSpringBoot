@@ -1,7 +1,12 @@
 package com.sakila.database.demo.Film;
 
+import com.sakila.database.demo.Actor.Actor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -90,6 +95,36 @@ public class FilmController {
     }
 
     //update film details
+
+    //add a rating score to a film id
+    @PatchMapping(path = "/update_score", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Film> updateFilmWithNewScore(@RequestParam int id, @RequestParam long newScore) {
+        //check the score submitted is in a valid range of 1-10
+        if (newScore>0 && newScore<=10) {
+            try {
+                Film film = filmRepository.findById(id).
+                        orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No film exists with this id."));
+                assert film != null;
+                //set new total score for the film
+                long newTotal=film.getScoreTotal() + newScore;
+                film.setScoreTotal(newTotal);
+                //set new total counts
+                long newTotalScoresSubmitted=film.getScoreCount() + 1L;
+                film.setScoreCount(newTotalScoresSubmitted);
+                //set new average rounded to 2.dp.
+                double average= (double) (newTotal/newTotalScoresSubmitted);
+                film.setScore(Math.round(average* 100.0) / 100.0);
+                //save film after all values updates
+                return new ResponseEntity<>(filmRepository.save(film), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } else {
+            //return error score submitted isnt between 1-10
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }
 

@@ -30,6 +30,7 @@ _________________________________________URL PATHS______________________________
 /films/delete/{id}                          >>>>>>>>> Delete a film using the film ID in the url
 /films/get_by_language                      >>>>>>>>> View all films that have the same language using request parameter (String language)
 /films/find_containing                      >>>>>>>>> Find films that contain partial strings (String titleString)
+/films/update_score                         >>>>>>>>> Add a new user score to the films overall score rating with request parameters (int id, long score)
 
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories
