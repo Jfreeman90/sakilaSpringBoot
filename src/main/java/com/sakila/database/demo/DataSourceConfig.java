@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * Configure the datasource using environment variables (production), or fallback values (dev)
+ * Configure the datasource using environment variables (production), or fallback values (dev) to automate the deployment using actions
  */
 @Configuration
 public class DataSourceConfig {

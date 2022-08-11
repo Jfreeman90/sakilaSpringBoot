@@ -68,3 +68,11 @@ _________________________________________URL PATHS______________________________
 /country/all                                >>>>>>>>> View all of the countries
 /country/{id}                               >>>>>>>>> View country information for the ID in the url
 /country/country/{name}                     >>>>>>>>> View a country by searching for the name
+
+-----------USERS-----------
+/users/all                                  >>>>>>>>> View all of the users
+/users/id                                   >>>>>>>>> View a user by based on a request parameter of the user ID (int id)
+/users/user                                 >>>>>>>>> View a user based on a request parameter of their username (String username)
+/users/email                                >>>>>>>>> View a user based on request parameter of their email (String email)
+/users/add                                  >>>>>>>>> Add a new user to the user database with three parameters (String email, String username, String password)
+/users/delete                               >>>>>>>>> Delete a user based on a request parameter of the user ID (int id)
