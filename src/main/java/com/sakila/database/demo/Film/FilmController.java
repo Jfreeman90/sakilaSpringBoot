@@ -97,6 +97,9 @@ public class FilmController {
     //update film details
 
     //add a rating score to a film id
+    /*
+    NOTE: The amazon sql remote server will need the three new score columns setting to 0 instead of null if this is a fresh re load
+     */
     @PatchMapping(path = "/update_score", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Film> updateFilmWithNewScore(@RequestParam int id, @RequestParam long newScore) {
         //check the score submitted is in a valid range of 1-10

@@ -75,4 +75,24 @@ public class FilmTest {
         assertEquals("Special features entry; post credit scene", testFilm.getSpecialFeatures() ,"Special features entry; post credit scene");
     }
 
+    @Test
+    void test_setScore(){
+        Film testFilm = new Film();
+        testFilm.setScore(5.6);
+        assertEquals(5.6,testFilm.getScore(), "Expected to return 5.6 and didnt");
+    }
+
+    @Test
+    void test_setScoreCount(){
+        Film testFilm = new Film();
+        testFilm.setScoreCount(1564L);
+        assertEquals(1564L,testFilm.getScoreCount(), "Expected to return 1564L and didnt");
+    }
+
+    @Test
+    void test_setScoreTotal(){
+        Film testFilm = new Film();
+        testFilm.setScoreCount(174L);
+        assertEquals(174L,testFilm.getScoreCount(), "Expected to return 174L and didnt");
+    }
 }
