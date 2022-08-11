@@ -84,7 +84,7 @@ public class Film {
         this.specialFeatures = specialFeatures;
         this.scoreTotal=scoreTotal;
         this.scoreCount=scoreCount;
-        this.score= (double) (scoreTotal / scoreCount);
+        this.score= ((double) scoreTotal / scoreCount);
     }
 
     //empty constructor

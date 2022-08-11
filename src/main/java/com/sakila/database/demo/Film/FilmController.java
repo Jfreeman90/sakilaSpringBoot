@@ -115,7 +115,7 @@ public class FilmController {
                 long newTotalScoresSubmitted=film.getScoreCount() + 1L;
                 film.setScoreCount(newTotalScoresSubmitted);
                 //set new average rounded to 2.dp.
-                double average= (double) (newTotal/newTotalScoresSubmitted);
+                double average= ((double)newTotal/newTotalScoresSubmitted);
                 film.setScore(Math.round(average* 100.0) / 100.0);
                 //save film after all values updates
                 return new ResponseEntity<>(filmRepository.save(film), HttpStatus.OK);
