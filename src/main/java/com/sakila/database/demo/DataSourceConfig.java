@@ -24,15 +24,15 @@ public class DataSourceConfig {
         String port = envOr("RDS_PORT", "33061");
         String dbName = envOr("RDS_DB_NAME", "sakila");
         String username = envOr("RDS_USERNAME", "root");
-        String password = envOr("RDS_PASSWORD", "root");
+        String pass = envOr("RDS_PASSWORD", "root");
 
         String url = String.format("jdbc:mysql://%s:%s/%s", hostName, port, dbName);
 
         dataSourceBuilder.url(url);
         dataSourceBuilder.username(username);
-        dataSourceBuilder.password(password);
+        dataSourceBuilder.password(pass);
 
-        LOGGER.info("Using data source config:\n  url={}\n  username={}\n  password={}", url, username, password);
+        LOGGER.info("Using data source config:\n  url={}\n  username={}\n  password={}", url, username, pass);
 
         return dataSourceBuilder.build();
     }

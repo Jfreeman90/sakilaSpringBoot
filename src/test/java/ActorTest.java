@@ -1,4 +1,4 @@
-import com.sakila.database.demo.Actor.Actor;
+import com.sakila.database.demo.actor.actor;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,7 +6,7 @@ public class ActorTest {
     //test actor constructor
     @Test
     void test_actorConstructor(){
-        Actor testActor = new Actor("JACK", "RUST");
+        actor testActor = new actor("JACK", "RUST");
         assertEquals("JACK", testActor.getFirstName(), "Expected to return JACK and didnt.");
         assertEquals("RUST", testActor.getLastName(), "Expected to return RUST and didnt.");
     }
@@ -14,22 +14,23 @@ public class ActorTest {
     //test for all actor getters and setters
     @Test
     void test_setActorID(){
-        Actor testActor = new Actor();
+        actor testActor = new actor();
         testActor.setActorId(1568);
         assertEquals(1568, testActor.getActorId(), "Expected to return 1568 and didnt.");
     }
 
     @Test
     void test_setFirstName(){
-        Actor testActor = new Actor();
+        actor testActor = new actor();
         testActor.setFirstName("DEAN");
         assertEquals("DEAN", testActor.getFirstName(), "Expected to return DEAN and didnt.");
     }
 
     @Test
     void test_setLastName(){
-        Actor testActor = new Actor();
+        actor testActor = new actor();
         testActor.setLastName("MCDONALD");
         assertEquals("MCDONALD", testActor.getLastName(), "Expected to return MCDONALD and didnt.");
     }
+
 }

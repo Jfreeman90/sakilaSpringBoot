@@ -1,7 +1,7 @@
 package com.sakila.database.demo;
 
 
-import com.sakila.database.demo.Category.Category;
+import com.sakila.database.demo.category.category;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateCategoryNameStepdefs {
     //create the variables that will be needed
-    private Category category;
+    private com.sakila.database.demo.category.category category;
 
     @Given("the original category is XXX")
     public void the_original_category_is_XXX(){
-        category= new Category("XXX");
+        category= new category("XXX");
     }
 
     @When("I change the category to Adult")
