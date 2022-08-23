@@ -102,4 +102,12 @@ class FilmTest {
         testFilm.setScoreCount(174L);
         assertEquals(174L,testFilm.getScoreCount(), "Expected to return 174L and didnt");
     }
+
+    @Test
+    void test_setTicketsReserved(){
+        Film testFilm = new Film();
+        testFilm.setTicketsReserved(174);
+        assertEquals(174,testFilm.getTicketsReserved(), "Expected to return 174 and didnt");
+    }
+
 }

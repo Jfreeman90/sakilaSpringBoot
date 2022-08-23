@@ -156,5 +156,18 @@ public class FilmController {
         }
         return filmList;
     }
+
+    //Add one to the tickets reserved
+    @PatchMapping(path = "/get_ticket", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Film> addOneToTicket(@RequestParam int id) {
+        Film film = filmRepository.findById(id).
+                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No ID match"));
+        assert film != null;
+        //set new total score for the film
+        int newTicketTotal=film.getTicketsReserved() + 1;
+        film.setTicketsReserved(newTicketTotal);
+        //save film after all values updates
+        return new ResponseEntity<>(filmRepository.save(film), HttpStatus.OK);
+    }
 }
 

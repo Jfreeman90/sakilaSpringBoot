@@ -34,6 +34,7 @@ _________________________________________URL PATHS______________________________
 /films/top_rated                            >>>>>>>>> Return the top 5 rated films in the database.
 /films/random                               >>>>>>>>> Return a random film
 /films/recommended                          >>>>>>>>> Return 3 films that can be used for recommended films
+/films/get_ticket                           >>>>>>>>> Return the updated film given its film ID with the ticket reserved + 1 (int id)
 
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories

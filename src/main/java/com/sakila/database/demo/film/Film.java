@@ -6,6 +6,7 @@ import com.sakila.database.demo.language.Language;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,9 @@ public class Film {
     private Long scoreCount;
     @Column(name="score_total")
     private Long scoreTotal;
+    //new columns to keep schedule and how many tickets for the showing
+    @Column(name="tickets_reserved")
+    private Integer ticketsReserved;
 
     //join each film to show its category in the film object
     @ManyToMany
@@ -202,6 +206,14 @@ public class Film {
 
     public void setScoreTotal(Long scoreTotal) {
         this.scoreTotal = scoreTotal;
+    }
+
+    public Integer getTicketsReserved() {
+        return ticketsReserved;
+    }
+
+    public void setTicketsReserved(Integer ticketsReserved) {
+        this.ticketsReserved = ticketsReserved;
     }
 
     @Override
