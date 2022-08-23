@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="customer")
-public class customer {
+public class Customer {
     //id column
     @Id
     @Column(name="customer_id")
@@ -24,10 +24,10 @@ public class customer {
     private int addressId;
 
     //constructor
-    public customer(){}
+    public Customer(){}
 
     //add a customer constuctor for an online customer creation
-    public customer(String firstName, String lastName, String email, int storeId, int addressId){
+    public Customer(String firstName, String lastName, String email, int storeId, int addressId){
      this.firstName=firstName;
      this.lastName=lastName;
      this.email=email;

@@ -2,7 +2,7 @@ package com.sakila.database.demo.language;
 import javax.persistence.*;
 @Entity
 @Table(name="language")
-public class language {
+public class Language {
     //table id found at this particular column
     @Id
     @Column(name = "language_id")
@@ -12,8 +12,8 @@ public class language {
     @Column(name="name")
     private String name;
     //Constructor
-    public language() {}
-    public language(String name) {
+    public Language() {}
+    public Language(String name) {
         this.name = name;
     }
     //getters and setters

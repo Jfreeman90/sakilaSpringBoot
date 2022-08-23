@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="film_actor")
-public class filmActor {
+public class FilmActor {
     //attributes
     @Id
     @Column(name = "actor_id")
@@ -14,7 +14,8 @@ public class filmActor {
     @Column(name = "film_id")
     private int filmId;
     //constructor
-    public filmActor() {
+    public FilmActor() {
+        //empty constructor for reading and creating repo
     }
     //getters and setters
     public int getFilmId() {

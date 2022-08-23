@@ -31,6 +31,7 @@ _________________________________________URL PATHS______________________________
 /films/get_by_language                      >>>>>>>>> View all films that have the same language using request parameter (String language)
 /films/find_containing                      >>>>>>>>> Find films that contain partial strings (String titleString)
 /films/update_score                         >>>>>>>>> Add a new user score to the films overall score rating with request parameters (int id, long score)
+/films/top_rated                            >>>>>>>>> Return the top 5 rated films in the database.
 
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories
@@ -77,3 +78,4 @@ _________________________________________URL PATHS______________________________
 /users/email                                >>>>>>>>> View a user based on request parameter of their email (String email)
 /users/add                                  >>>>>>>>> Add a new user to the user database with three parameters (String email, String username, String password)
 /users/delete                               >>>>>>>>> Delete a user based on a request parameter of the user ID (int id)
+/users/change-password                      >>>>>>>>> Change a users password using request parameters (String username, String newPassW)

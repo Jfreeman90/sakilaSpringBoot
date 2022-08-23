@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/address")
-public class addressController {
+public class AddressController {
     public AddressRepository addressRepository;
     @Autowired
     public void addressControllerWired(AddressRepository addressRepository){this.addressRepository=addressRepository;}
@@ -16,28 +16,28 @@ public class addressController {
     //get all address
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<address> getAllAddresses(){
+    Iterable<Address> getAllAddresses(){
         return addressRepository.findAll();
     }
 
     //get address by ID
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<address> getAddressById(@PathVariable(name="id") int id) {
+    Optional<Address> getAddressById(@PathVariable(name="id") int id) {
         return addressRepository.findById(id);
     }
 
     //get all address' in a particular city
     @GetMapping("/get_by_city")
     public @ResponseBody
-    List<address> getAddressByCity(@RequestParam String city) {
+    List<Address> getAddressByCity(@RequestParam String city) {
         return addressRepository.findByCity_City(city);
     }
 
     //get all address in a particular country
     @GetMapping("/get_by_country")
     public @ResponseBody
-    List<address> getAddressByCountry(@RequestParam String country) {
+    List<Address> getAddressByCountry(@RequestParam String country) {
         return addressRepository.findByCity_Country_Country(country);
     }
 }

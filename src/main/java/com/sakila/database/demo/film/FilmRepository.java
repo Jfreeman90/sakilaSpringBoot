@@ -5,12 +5,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FilmRepository extends CrudRepository<film, Integer> {
-    List<film> findByTitleIgnoreCase(String title);
-    List<film> findByTitleContainingIgnoreCase(String titleString);
+public interface FilmRepository extends CrudRepository<Film, Integer> {
+    List<Film> findByTitleIgnoreCase(String title);
+    List<Film> findByTitleContainingIgnoreCase(String titleString);
 
-    List<film> findByLanguage_Name(String name);
-    List<film> findByFilmCategory_Name(String name);
+    List<Film> findByLanguage_Name(String name);
+    List<Film> findByFilmCategory_Name(String name);
+    List<Film> findTop5ByOrderByScoreDesc();
 
 }
 

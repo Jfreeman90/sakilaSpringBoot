@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/filmactor")
-public class filmActorController {
+public class FilmActorController {
     //connect the class to the correct table in the database
     public FilmActorRepository filmActorRepository;
     @Autowired
@@ -14,7 +14,7 @@ public class filmActorController {
     //Get request for all film ids and actor ids
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<filmActor> getAllFilmsAndActor() {
+    Iterable<FilmActor> getAllFilmsAndActor() {
         return filmActorRepository.findAll();
     }
 }

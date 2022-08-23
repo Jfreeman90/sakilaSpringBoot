@@ -6,7 +6,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/country")
-public class countryController {
+public class CountryController {
     public CountryRepository countryRepository;
     @Autowired
     public void countryControllerWired(CountryRepository countryRepository){this.countryRepository=countryRepository;}
@@ -14,21 +14,21 @@ public class countryController {
     //get all countries
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<country> getAllCountries(){
+    Iterable<Country> getAllCountries(){
         return countryRepository.findAll();
     }
 
     //get country by ID
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<country> getCountryById(@PathVariable(name="id") int id) {
+    Optional<Country> getCountryById(@PathVariable(name="id") int id) {
         return countryRepository.findById(id);
     }
 
     //get country by name
     @GetMapping("/country/{city}")
     public @ResponseBody
-    List<country> CountryName(@PathVariable(name="country") String country){
+    List<Country> CountryName(@PathVariable(name="country") String country){
         return countryRepository.findByCountry(country);
     }
 

@@ -1,6 +1,6 @@
 package com.sakila.database.demo;
 
-import com.sakila.database.demo.actor.actor;
+import com.sakila.database.demo.actor.Actor;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateActorNameStepdefs {
     //create the variables that will be needed
-    private actor jamesBean;
-    private actor richardCrane;
+    private Actor jamesBean;
+    private Actor richardCrane;
 
     @Given("the actors original name is James Bean")
     public void the_actors_original_name_is_James_Bean(){
-        jamesBean= new actor("JAMES","BEAN");
+        jamesBean= new Actor("JAMES","BEAN");
     }
 
     @When ("I change the first name to Harry")
@@ -30,7 +30,7 @@ public class UpdateActorNameStepdefs {
 
     @Given("the actors original name is Richard Crane")
     public void the_actors_original_name_is_Richard_Crane(){
-        richardCrane= new actor("RICHARD","CRANE");
+        richardCrane= new Actor("RICHARD","CRANE");
     }
 
     @When("I change the second name to Reid")

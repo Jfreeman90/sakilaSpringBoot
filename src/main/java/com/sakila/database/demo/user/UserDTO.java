@@ -2,7 +2,7 @@ package com.sakila.database.demo.user;
 
 import java.io.Serializable;
 
-public class userDTO implements Serializable {
+public class UserDTO implements Serializable {
     private Integer userId;
     private String email;
     private String username;

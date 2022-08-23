@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CityRepository extends CrudRepository<city, Integer>{
-    List<city> findByCity(String city);
+public interface CityRepository extends CrudRepository<City, Integer>{
+    List<City> findByCity(String city);
 }
 

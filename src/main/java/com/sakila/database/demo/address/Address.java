@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="address")
-public class address {
+public class Address {
     //table id found at this particular column
     @Id
     @Column(name = "address_id")
@@ -17,7 +17,7 @@ public class address {
     //join each address to show its city and therefore its country
     @ManyToOne
     @JoinColumn(name="city_id", nullable=false, insertable = false, updatable = false)
-    private com.sakila.database.demo.address.city city;
+    private City city;
 
     @Column(name="district")
     private String district;
@@ -29,7 +29,8 @@ public class address {
     private String phone;
 
     //constructor
-    public address() {
+    public Address() {
+        //empty constructor for reading and creating repo
     }
 
     //getters and setters
@@ -49,11 +50,11 @@ public class address {
         this.address = address;
     }
 
-    public com.sakila.database.demo.address.city getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(com.sakila.database.demo.address.city city) {
+    public void setCity(City city) {
         this.city = city;
     }
 

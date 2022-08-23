@@ -1,32 +1,32 @@
-import com.sakila.database.demo.film.filmInfo;
+import com.sakila.database.demo.film.FilmInfo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FilmInfoTest {
+class FilmInfoTest {
     @Test
     void test_setFilmId(){
-        filmInfo testFilmInfo = new filmInfo();
+        FilmInfo testFilmInfo = new FilmInfo();
         testFilmInfo.setFilmId(546);
         assertEquals(546, testFilmInfo.getFilmId(), "Expected to return 546 and didnt");
     }
 
     @Test
     void test_setFilmTitle(){
-        filmInfo testFilmInfo = new filmInfo();
+        FilmInfo testFilmInfo = new FilmInfo();
         testFilmInfo.setTitle("INCREDIBLE HULK");
         assertEquals("INCREDIBLE HULK", testFilmInfo.getTitle(), "Expected to return INCREDIBLE HULK and didnt.");
     }
 
     @Test
     void test_setReleaseYear(){
-        filmInfo testFilmInfo = new filmInfo();
+        FilmInfo testFilmInfo = new FilmInfo();
         testFilmInfo.setReleaseYear(2022);
         assertEquals(2022, testFilmInfo.getReleaseYear(), "Expected to return 2022 and didnt.");
     }
 
     @Test
     void test_setScore(){
-        filmInfo testFilmInfo = new filmInfo();
+        FilmInfo testFilmInfo = new FilmInfo();
         testFilmInfo.setScore(5.6);
         assertEquals(5.6,testFilmInfo.getScore(), "Expected to return 5.6 and didnt");
     }

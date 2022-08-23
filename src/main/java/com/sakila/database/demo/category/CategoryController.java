@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/category")
-public class categoryController {
+public class CategoryController {
     public CategoryRepository categoryRepository;
     @Autowired
     public void categoryControllerWired(CategoryRepository categoryRepository){this.categoryRepository=categoryRepository;}
@@ -18,35 +18,35 @@ public class categoryController {
     //get all categories
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<category> getAllCategories(){
+    Iterable<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
 
     //get a category from its id via a url
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<category> getCategoryById(@PathVariable(name="id") int id) {
+    Optional<Category> getCategoryById(@PathVariable(name="id") int id) {
         return categoryRepository.findById(id);
     }
 
     //Get request for a specific film using a request paramater instead of a fixed url look up.
     @GetMapping("/categoryID")
     public @ResponseBody
-    Optional<category> categoryId(@RequestParam int id){
+    Optional<Category> categoryId(@RequestParam int id){
         return categoryRepository.findById(id);
     }
 
     //Get request to view specific category by entering category name in the url
     @GetMapping("/cat/{name}")
     public @ResponseBody
-    List<category> categoryName(@PathVariable(name="name") String name){
+    List<Category> categoryName(@PathVariable(name="name") String name){
         return categoryRepository.findByName(name);
     }
 
     //Get request to view specific category by entering category name using req paramters
     @GetMapping("/category")
     public @ResponseBody
-    List<category> categoryNameReq(@RequestParam String name){
+    List<Category> categoryNameReq(@RequestParam String name){
         return categoryRepository.findByName(name);
     }
 
@@ -54,7 +54,7 @@ public class categoryController {
     @PostMapping("/add")
     public @ResponseBody
     String addNewCategory(@RequestParam String name){
-        category category = new category(name);
+        Category category = new Category(name);
         categoryRepository.save(category);
         return "Saved";
     }
@@ -69,9 +69,9 @@ public class categoryController {
 
     //update a current category to a new name by using its ID
     @PatchMapping(path = "/update/name", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<category> updateActorSecondNameReq(@RequestParam int id, @RequestParam String name) {
+    public ResponseEntity<Category> updateActorSecondNameReq(@RequestParam int id, @RequestParam String name) {
         try {
-            category category = categoryRepository.findById(id).
+            Category category = categoryRepository.findById(id).
                     orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No Category exists with this id"));
             assert category != null;
             category.setName(name);

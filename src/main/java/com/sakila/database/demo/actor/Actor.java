@@ -1,5 +1,5 @@
 package com.sakila.database.demo.actor;
-import com.sakila.database.demo.film.filmInfo;
+import com.sakila.database.demo.film.FilmInfo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 //class to deal with the actor objects withdrawn from the actor database.
 @Entity
 @Table(name="actor")
-public class actor {
+public class Actor {
     @Id
     @Column(name="actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,16 +27,16 @@ public class actor {
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id")
     )
-    List<filmInfo> films = new ArrayList<>();
+    List<FilmInfo> films = new ArrayList<>();
 
     //generators
-    public actor(String firstName, String lastName) {
+    public Actor(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     //constructors
-    public actor() {
+    public Actor() {
     }
 
     //getters and setters
@@ -48,11 +48,11 @@ public class actor {
         this.actorId = actorId;
     }
 
-    public List<filmInfo> getFilms() {
+    public List<FilmInfo> getFilms() {
         return films;
     }
 
-    public void setFilms(List<filmInfo> films) {
+    public void setFilms(List<FilmInfo> films) {
         this.films = films;
     }
 

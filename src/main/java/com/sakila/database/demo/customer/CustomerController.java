@@ -6,7 +6,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/customer")
-public class customerController {
+public class CustomerController {
     //create object and wire to sql database 'customer'
     public CustomerRepository customerRepository;
     @Autowired
@@ -17,20 +17,20 @@ public class customerController {
     //get all of the customer details on record
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<customer> getAllCustomers(){
+    Iterable<Customer> getAllCustomers(){
         return customerRepository.findAll();
     }
 
     //get a customer details based on id of the url
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<customer> getCustomerById(@PathVariable(name="id") int id) {
+    Optional<Customer> getCustomerById(@PathVariable(name="id") int id) {
         return customerRepository.findById(id);
     }
 
     //Get request for a specific customer using a request parameter instead of a fixed url look up.
     @GetMapping("/ID")
-    public @ResponseBody Optional<customer> customerById(@RequestParam int id){
+    public @ResponseBody Optional<Customer> customerById(@RequestParam int id){
         return customerRepository.findById(id);
     }
 
@@ -39,7 +39,7 @@ public class customerController {
     public @ResponseBody
     String addNewCustomer(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
                             @RequestParam int storeId, @RequestParam int addressId){
-        customer customer = new customer(firstName, lastName, email, storeId, addressId);
+        Customer customer = new Customer(firstName, lastName, email, storeId, addressId);
         customerRepository.save(customer);
         return "Saved";
     }

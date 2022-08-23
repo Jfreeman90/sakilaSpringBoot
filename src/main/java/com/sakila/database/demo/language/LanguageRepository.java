@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LanguageRepository extends CrudRepository<language,Integer>{
-    List<language> findByName(String name);
+public interface LanguageRepository extends CrudRepository<Language,Integer>{
+    List<Language> findByName(String name);
 }

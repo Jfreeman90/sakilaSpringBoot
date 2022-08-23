@@ -1,17 +1,17 @@
-import com.sakila.database.demo.filmActor.filmActor;
+import com.sakila.database.demo.filmActor.FilmActor;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FilmActorTest {
+class FilmActorTest {
     @Test
     void test_setActorID(){
-        filmActor testFilmActor = new filmActor();
+        FilmActor testFilmActor = new FilmActor();
         testFilmActor.setActorId(1568);
         assertEquals(1568, testFilmActor.getActorId(), "Expected to return 1568 and didnt.");
     }
     @Test
     void test_setFilmID(){
-        filmActor testFilmActor = new filmActor();
+        FilmActor testFilmActor = new FilmActor();
         testFilmActor.setFilmId(147);
         assertEquals(147, testFilmActor.getFilmId(), "Expected to return 147 and didnt.");
     }

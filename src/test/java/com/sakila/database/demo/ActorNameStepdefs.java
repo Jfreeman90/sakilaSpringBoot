@@ -1,6 +1,6 @@
 package com.sakila.database.demo;
 
-import com.sakila.database.demo.actor.actor;
+import com.sakila.database.demo.actor.Actor;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +11,7 @@ public class ActorNameStepdefs {
     //create the variables that will be needed to store
     private String firstName;
     private String lastName;
-    private com.sakila.database.demo.actor.actor actor;
+    private Actor actor;
 
     @Given("the actor name is James Bean")
     public void the_actor_name_is_James_Bean(){
@@ -21,7 +21,7 @@ public class ActorNameStepdefs {
 
     @When("I create a new actor called James Bean")
     public void I_create_a_new_actor_called_James_Bean(){
-        actor= new actor(firstName,lastName);
+        actor= new Actor(firstName,lastName);
     }
 
     @Then("I should be get James Bean from the getter")

@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="city")
-public class city {
+public class City {
     //table id found at this particular column
     @Id
     @Column(name = "city_id")
@@ -16,10 +16,11 @@ public class city {
     //join each city to show its country
     @ManyToOne
     @JoinColumn(name="country_id", nullable=false, insertable = false, updatable = false)
-    private com.sakila.database.demo.address.country country;
+    private Country country;
 
     //constructor
-    public city() {
+    public City() {
+        //empty constructor for reading and creating repo
     }
 
     //getters and setters
@@ -39,11 +40,11 @@ public class city {
         this.city = city;
     }
 
-    public com.sakila.database.demo.address.country getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(com.sakila.database.demo.address.country country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

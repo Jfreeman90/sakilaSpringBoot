@@ -1,6 +1,9 @@
 package com.sakila.database.demo.film;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sakila.database.demo.category.category;
+import com.sakila.database.demo.actor.Actor;
+import com.sakila.database.demo.category.Category;
+import com.sakila.database.demo.language.Language;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,7 +12,7 @@ import java.util.List;
 //class to deal with the actor objects withdrawn from the actor database.
 @Entity
 @Table(name="film")
-public class film {
+public class Film {
     @Id
     @Column(name="film_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +20,7 @@ public class film {
     //connect films to actor
     @JsonIgnore
     @ManyToMany(mappedBy = "films")
-    List<com.sakila.database.demo.actor.actor> actor = new ArrayList<>();
+    List<Actor> actor = new ArrayList<>();
     // Attributes
     @Column(name="title")
     private String title;
@@ -30,7 +33,7 @@ public class film {
     //join each film to show its language in the film object
     @ManyToOne
     @JoinColumn(name="language_id", nullable=false, insertable = false, updatable = false)
-    private com.sakila.database.demo.language.language language;
+    private Language language;
     @Column(name="rental_duration")
     private Integer rentalDuration;
     @Column(name="rental_rate")
@@ -58,31 +61,12 @@ public class film {
             joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    List<category> filmCategory = new ArrayList<>();
-
-    //constructor for a film with all values.
-    public film(String title, String description, Integer releaseYear,
-                Integer languageId, Integer rentalDuration,
-                BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating,
-                String specialFeatures, long scoreTotal, long scoreCount) {
-        this.title = title;
-        this.description = description;
-        this.releaseYear = releaseYear;
-        this.languageId = languageId;
-        this.rentalDuration = rentalDuration;
-        this.rentalRate = rentalRate;
-        this.length = length;
-        this.replacementCost = replacementCost;
-        this.rating = rating;
-        this.specialFeatures = specialFeatures;
-        this.scoreTotal=scoreTotal;
-        this.scoreCount=scoreCount;
-        this.score= ((double) scoreTotal / scoreCount);
-    }
+    List<Category> filmCategory = new ArrayList<>();
 
     //empty constructor
-    public film() {}
-
+    public Film() {
+        //empty constructor for reading and creating repo
+    }
     //getters and setters
     public int getFilmId() {
         return filmId;
@@ -172,27 +156,27 @@ public class film {
         this.specialFeatures = specialFeatures;
     }
 
-    public List<category> getFilmCategory() {
+    public List<Category> getFilmCategory() {
         return filmCategory;
     }
 
-    public void setFilmCategory(List<category> filmCategory) {
+    public void setFilmCategory(List<Category> filmCategory) {
         this.filmCategory = filmCategory;
     }
 
-    public List<com.sakila.database.demo.actor.actor> getActor() {
+    public List<Actor> getActor() {
         return actor;
     }
 
-    public void setActor(List<com.sakila.database.demo.actor.actor> actor) {
+    public void setActor(List<Actor> actor) {
         this.actor = actor;
     }
 
-    public com.sakila.database.demo.language.language getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(com.sakila.database.demo.language.language language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 

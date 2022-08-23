@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="country")
-public class country {
+public class Country {
     //table id found at this particular column
     @Id
     @Column(name = "country_id")
@@ -15,7 +15,8 @@ public class country {
     private String country;
 
     //constructor
-    public country() {
+    public Country() {
+        //empty constructor for reading and creating repo
     }
 
     //getters and setters

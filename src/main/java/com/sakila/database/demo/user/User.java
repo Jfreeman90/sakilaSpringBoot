@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name= "user")
-public class user {
+public class User {
     //id column, username and password table and entity.
     @Id
     @Column(name = "user_id")
@@ -24,10 +24,10 @@ public class user {
     private int active;
 
     //constructor
-    public user() {
+    public User() {
     }
 
-    public user(String email, String username, String password) {
+    public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;

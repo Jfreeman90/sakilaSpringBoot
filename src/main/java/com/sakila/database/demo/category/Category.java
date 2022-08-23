@@ -1,7 +1,7 @@
 package com.sakila.database.demo.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sakila.database.demo.film.film;
+import com.sakila.database.demo.film.Film;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="category")
-public class category {
+public class Category {
     //table id found at this particular column
     @Id
     @Column(name = "category_id")
@@ -22,13 +22,15 @@ public class category {
     //connect category to films
     @JsonIgnore
     @ManyToMany(mappedBy = "filmCategory")
-    List<film> films = new ArrayList<>();
+    List<Film> films = new ArrayList<>();
 
     //empty constructor
-    public category() {}
+    public Category() {
+        //empty constructor for reading and creating repo
+    }
 
     //constructor to make a new category name
-    public category(String name) {
+    public Category(String name) {
         this.name = name;
     }
 
@@ -47,11 +49,11 @@ public class category {
         this.name = name;
     }
 
-    public List<film> getFilms() {
+    public List<Film> getFilms() {
         return films;
     }
 
-    public void setFilms(List<film> films) {
+    public void setFilms(List<Film> films) {
         this.films = films;
     }
 

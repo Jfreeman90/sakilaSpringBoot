@@ -4,7 +4,7 @@ import javax.persistence.*;
 //Contains only some columns of film information needed when an actor list contains films they have been in.
 @Entity
 @Table(name="film")
-public class filmInfo {
+public class FilmInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="film_id")
@@ -20,7 +20,8 @@ public class filmInfo {
     private Double score;
 
     //constructors
-    public filmInfo() {
+    public FilmInfo() {
+        //empty constructor for reading and creating repo
     }
 
     //getters and setters

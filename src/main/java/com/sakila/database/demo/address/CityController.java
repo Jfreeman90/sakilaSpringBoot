@@ -6,7 +6,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/city")
-public class cityController {
+public class CityController {
     public CityRepository cityRepository;
     @Autowired
     public void cityControllerWired(CityRepository cityRepository){this.cityRepository=cityRepository;}
@@ -14,21 +14,21 @@ public class cityController {
     //get all cities
     @GetMapping("/all")
     public @ResponseBody
-    Iterable<city> getAllCities(){
+    Iterable<City> getAllCities(){
         return cityRepository.findAll();
     }
 
     //get city by ID
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<city> getCityById(@PathVariable(name="id") int id) {
+    Optional<City> getCityById(@PathVariable(name="id") int id) {
         return cityRepository.findById(id);
     }
 
     //get city by name
     @GetMapping("/city/{city}")
     public @ResponseBody
-    List<city> cityName(@PathVariable(name="city") String city){
+    List<City> cityName(@PathVariable(name="city") String city){
         return cityRepository.findByCity(city);
     }
 
