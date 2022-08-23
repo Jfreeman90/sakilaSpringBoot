@@ -19,6 +19,9 @@ public class FilmInfo {
     @Column(name="score")
     private Double score;
 
+    @Column(name="score_count")
+    private Long scoreCount;
+
     //constructors
     public FilmInfo() {
         //empty constructor for reading and creating repo
@@ -55,6 +58,14 @@ public class FilmInfo {
         this.score = score;
     }
 
+    public Long getScoreCount() {
+        return scoreCount;
+    }
+
+    public void setScoreCount(Long scoreCount) {
+        this.scoreCount = scoreCount;
+    }
+
     @Override
     public String toString() {
         return "FilmInfo{" +
@@ -62,6 +73,7 @@ public class FilmInfo {
                 ", title='" + title + '\'' +
                 ", releaseYear=" + releaseYear +
                 ", score=" + score +
+                ", scoreCount=" + scoreCount +
                 '}';
     }
 }

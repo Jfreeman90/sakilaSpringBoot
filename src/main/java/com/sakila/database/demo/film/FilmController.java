@@ -5,6 +5,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -123,6 +125,36 @@ public class FilmController {
     public @ResponseBody
     List<Film> getTopRatedFilms() {
         return filmRepository.findTop5ByOrderByScoreDesc();
+    }
+
+    //return one random film that can be used as a placeholder.
+    @GetMapping("/random")
+    public @ResponseBody
+    Optional<Film> getRandomFilm() {
+        long count= filmRepository.count();
+        int index=(int)(Math.random() * count);
+        return filmRepository.findById(index);
+    }
+
+    //return 3 random films that can be used as recommended films in the front end for now.
+    @GetMapping("/recommended")
+    public @ResponseBody
+    List<Film> getRecommendedFilms() {
+        long count= filmRepository.count();
+        List<Film> filmList=new ArrayList<>();
+        //pick three random indexed and add to a film list to return
+        for (int i=0; i<3; i++){
+            //random index to find a film
+            int index=(int)(Math.random() * count);
+            //new film object with a random id
+            Film film = filmRepository.findById(index).
+                                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No film exists with this id."));
+            //check for null
+            assert film != null;
+            //add new film to list of films to return
+            filmList.add(film);
+        }
+        return filmList;
     }
 }
 

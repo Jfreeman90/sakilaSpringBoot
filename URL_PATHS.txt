@@ -32,6 +32,8 @@ _________________________________________URL PATHS______________________________
 /films/find_containing                      >>>>>>>>> Find films that contain partial strings (String titleString)
 /films/update_score                         >>>>>>>>> Add a new user score to the films overall score rating with request parameters (int id, long score)
 /films/top_rated                            >>>>>>>>> Return the top 5 rated films in the database.
+/films/random                               >>>>>>>>> Return a random film
+/films/recommended                          >>>>>>>>> Return 3 films that can be used for recommended films
 
 ----------CATEGORY---------
 /category/all                               >>>>>>>>> View all of the categories
