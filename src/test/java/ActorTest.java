@@ -1,6 +1,7 @@
 import com.sakila.database.demo.actor.Actor;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ActorTest {
     //test actor constructor
@@ -32,5 +33,8 @@ class ActorTest {
         testActor.setLastName("MCDONALD");
         assertEquals("MCDONALD", testActor.getLastName(), "Expected to return MCDONALD and didnt.");
     }
-
+    @Test
+    void test_ToString() {
+        assertFalse(new Actor().toString().contains("@"));
+    }
 }

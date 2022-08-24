@@ -1,9 +1,9 @@
 import com.sakila.database.demo.film.Film;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
-import java.sql.Time;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class FilmTest {
     //test every getter and setter inside the film class.
@@ -101,8 +101,8 @@ class FilmTest {
     @Test
     void test_setScoreTotal(){
         Film testFilm = new Film();
-        testFilm.setScoreCount(174L);
-        assertEquals(174L,testFilm.getScoreCount(), "Expected to return 174L and didnt");
+        testFilm.setScoreTotal(174L);
+        assertEquals(174L,testFilm.getScoreTotal(), "Expected to return 174L and didnt");
     }
 
     @Test
@@ -112,13 +112,9 @@ class FilmTest {
         assertEquals(174,testFilm.getTicketsReserved(), "Expected to return 174 and didnt");
     }
 
-    /*
     @Test
-    void test_setNextShowing(){
-        Film testFilm = new Film();
-        testFilm.setNextShowing(Time.valueOf("12:45:23"));
-        assertEquals(Time.valueOf("12:45:23"),testFilm.getNextShowing(), "Expected to return 12:45:23 and didnt");
+    void test_ToString() {
+        assertFalse(new Film().toString().contains("@"));
     }
-     */
 
 }

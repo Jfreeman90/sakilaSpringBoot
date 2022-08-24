@@ -2,6 +2,7 @@ import com.sakila.database.demo.address.City;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CityTest {
     //test all of city getters and setters
@@ -17,5 +18,10 @@ class CityTest {
         City testCity = new City();
         testCity.setCity("PARIS");;
         assertEquals("PARIS", testCity.getCity(), "Expected to get PARIS and didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new City().toString().contains("@"));
     }
 }

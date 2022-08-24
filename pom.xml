@@ -62,7 +62,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>sakila-api-release</finalName>
 		<plugins>
@@ -78,6 +77,9 @@
 					<excludes>
 						<exclude>**/*Controller.*</exclude>
 						<exclude>**/*Repository.*</exclude>
+						<exclude>**/*Config.*</exclude>
+						<exclude>**/*Application.*</exclude>
+						<exclude>**/*DTO.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>

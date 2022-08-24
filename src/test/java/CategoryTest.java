@@ -1,6 +1,7 @@
 import com.sakila.database.demo.category.Category;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CategoryTest {
     @Test
@@ -15,5 +16,10 @@ class CategoryTest {
         Category testCategory = new Category();
         testCategory. setName("ACTION");
         assertEquals("ACTION", testCategory.getName(), "Expected to return ACTION and didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new Category().toString().contains("@"));
     }
 }

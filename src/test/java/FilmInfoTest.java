@@ -1,6 +1,7 @@
 import com.sakila.database.demo.film.FilmInfo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class FilmInfoTest {
     @Test
@@ -36,5 +37,10 @@ class FilmInfoTest {
         FilmInfo testFilmInfo = new FilmInfo();
         testFilmInfo.setScoreCount(56L);
         assertEquals(56L,testFilmInfo.getScoreCount(), "Expected to return 56L and didnt");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new FilmInfo().toString().contains("@"));
     }
 }

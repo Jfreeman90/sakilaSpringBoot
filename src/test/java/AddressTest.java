@@ -1,6 +1,7 @@
 import com.sakila.database.demo.address.Address;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AddressTest {
     //test address getters and setters
@@ -37,5 +38,10 @@ class AddressTest {
         Address testAddress = new Address();
         testAddress.setPhone("1567498161");
         assertEquals("1567498161", testAddress.getPhone(), "Expected to return 1567498161 but didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new Address().toString().contains("@"));
     }
 }

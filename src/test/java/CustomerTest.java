@@ -1,8 +1,21 @@
 import com.sakila.database.demo.customer.Customer;
+import com.sakila.database.demo.film.Film;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CustomerTest {
+    //customer constructor test
+    @Test
+    void test_constructor(){
+        Customer testCustomer = new Customer("JACK", "JACK", "jack@email.com", 1, 1);
+        assertEquals("JACK", testCustomer.getFirstName(), "Expected to return JACK and didnt.");
+        assertEquals("JACK", testCustomer.getLastName(), "Expected to return JACK and didnt.");
+        assertEquals("jack@email.com", testCustomer.getEmail(), "Expected to return jack@email.com and didnt.");
+        assertEquals(1, testCustomer.getStoreId(), "Expected to return 1 and didnt.");
+        assertEquals(1, testCustomer.getAddressId(), "Expected to return 1 and didnt.");
+    }
+
     @Test
     void test_setActorID(){
         Customer testCustomer = new Customer();
@@ -44,5 +57,10 @@ class CustomerTest {
         Customer testCustomer = new Customer();
         testCustomer.setAddressId(1);
         assertEquals(1, testCustomer.getAddressId(), "Expected to return 1 and didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new Film().toString().contains("@"));
     }
 }

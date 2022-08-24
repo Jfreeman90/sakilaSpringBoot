@@ -1,6 +1,7 @@
 import com.sakila.database.demo.category.FilmCategory;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class FilmCategoryTest {
     @Test
@@ -14,5 +15,10 @@ class FilmCategoryTest {
         FilmCategory testFilmCategory = new FilmCategory();
         testFilmCategory.setFilmId(147);
         assertEquals(147, testFilmCategory.getFilmId(), "Expected to return 147 and didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new FilmCategory().toString().contains("@"));
     }
 }

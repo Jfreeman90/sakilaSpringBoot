@@ -1,6 +1,7 @@
 import com.sakila.database.demo.user.User;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class UserTest {
     @Test
@@ -45,6 +46,11 @@ class UserTest {
         User testUser = new User();
         testUser.setActive(0);
         assertEquals(0, testUser.getActive(), "Expected to return 0 and didnt.");
+    }
+
+    @Test
+    void test_ToString() {
+        assertFalse(new User().toString().contains("@"));
     }
 
 }
