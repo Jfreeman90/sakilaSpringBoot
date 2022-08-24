@@ -1,6 +1,8 @@
 import com.sakila.database.demo.film.Film;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import java.sql.Time;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FilmTest {
@@ -108,6 +110,13 @@ class FilmTest {
         Film testFilm = new Film();
         testFilm.setTicketsReserved(174);
         assertEquals(174,testFilm.getTicketsReserved(), "Expected to return 174 and didnt");
+    }
+
+    @Test
+    void test_setNextShowing(){
+        Film testFilm = new Film();
+        testFilm.setNextShowing(Time.valueOf("12:45:23"));
+        assertEquals(Time.valueOf("12:45:23"),testFilm.getNextShowing(), "Expected to return 12:45:23 and didnt");
     }
 
 }

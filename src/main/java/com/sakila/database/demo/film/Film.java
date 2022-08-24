@@ -7,6 +7,7 @@ import com.sakila.database.demo.language.Language;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +55,12 @@ public class Film {
     private Long scoreCount;
     @Column(name="score_total")
     private Long scoreTotal;
-    //new columns to keep schedule and how many tickets for the showing
+    //new columns to keep schedule and how many tickets have been reserved
     @Column(name="tickets_reserved")
     private Integer ticketsReserved;
+    //new column for the time of the next showing H:M:S
+    @Column(name="next_showing")
+    private Time nextShowing;
 
     //join each film to show its category in the film object
     @ManyToMany
@@ -216,13 +220,22 @@ public class Film {
         this.ticketsReserved = ticketsReserved;
     }
 
+    public Time getNextShowing() {
+        return nextShowing;
+    }
+
+    public void setNextShowing(Time nextShowing) {
+        this.nextShowing = nextShowing;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
-                "film_id=" + filmId +
+                "filmId=" + filmId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseYear=" + releaseYear +
+                ", languageId=" + languageId +
                 ", rentalDuration=" + rentalDuration +
                 ", rentalRate=" + rentalRate +
                 ", length=" + length +
@@ -232,6 +245,8 @@ public class Film {
                 ", score=" + score +
                 ", scoreCount=" + scoreCount +
                 ", scoreTotal=" + scoreTotal +
+                ", ticketsReserved=" + ticketsReserved +
+                ", nextShowing=" + nextShowing +
                 '}';
     }
 }

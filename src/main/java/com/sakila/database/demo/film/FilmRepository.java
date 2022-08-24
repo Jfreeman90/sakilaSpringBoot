@@ -8,10 +8,9 @@ import java.util.List;
 public interface FilmRepository extends CrudRepository<Film, Integer> {
     List<Film> findByTitleIgnoreCase(String title);
     List<Film> findByTitleContainingIgnoreCase(String titleString);
-
     List<Film> findByLanguage_Name(String name);
     List<Film> findByFilmCategory_Name(String name);
     List<Film> findTop5ByOrderByScoreDesc();
-
+    List<Film> findTop5ByOrderByNextShowingDesc();
 }
 
