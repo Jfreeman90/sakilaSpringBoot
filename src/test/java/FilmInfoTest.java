@@ -30,4 +30,11 @@ class FilmInfoTest {
         testFilmInfo.setScore(5.6);
         assertEquals(5.6,testFilmInfo.getScore(), "Expected to return 5.6 and didnt");
     }
+
+    @Test
+    void test_setScoreCount(){
+        FilmInfo testFilmInfo = new FilmInfo();
+        testFilmInfo.setScoreCount(56L);
+        assertEquals(56L,testFilmInfo.getScoreCount(), "Expected to return 56L and didnt");
+    }
 }

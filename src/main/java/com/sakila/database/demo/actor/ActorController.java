@@ -57,9 +57,9 @@ public class ActorController {
     }
 
     //Get request to return actor details based on name
-    @GetMapping("/firstname/{first_name}")
+    @GetMapping("/firstname/{firstName}")
     public @ResponseBody
-    List<Actor> getActorByFirstName(@PathVariable(name="first_name") String firstName) {
+    List<Actor> getActorByFirstName(@PathVariable(name="firstName") String firstName) {
         return actorRepository.findByFirstName(firstName.toUpperCase());
     }
 
@@ -92,11 +92,18 @@ public class ActorController {
         return actorRepository.findByFirstNameAndLastName(firstname, lastname);
     }
 
-    //get all of the actors that were in a film title
+    //get actors that were in a film title
     @GetMapping("/find_actors_in_film")
     public @ResponseBody
     Iterable<Actor> findActorsInFilm(@RequestParam String title){
         return actorRepository.findByFilms_Title(title);
+    }
+
+    //get actors that were in a film by id
+    @GetMapping("/actors_in_film")
+    public @ResponseBody
+    Iterable<Actor> findActorsInFilmId(@RequestParam int id){
+        return actorRepository.findByFilms_filmId(id);
     }
 
     //Delete an actor from the actor table based on id
@@ -107,7 +114,7 @@ public class ActorController {
         return "deleted";
     }
 
-    private String noActorError="No Actor exists with this id.";
+    private final String noActorError="No Actor exists with this id.";
     //update actor first name by ID input first name using url
     @PatchMapping(path = "/update/firstname/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {

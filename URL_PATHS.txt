@@ -14,6 +14,7 @@ _________________________________________URL PATHS______________________________
 /actors/firstname_search                    >>>>>>>>> Find an actor by first name containing a partial string (String partialFirstName)
 /actors/lastname_search                     >>>>>>>>> Find an actor by second name containing a partial string (String partialLastName)
 /actors/find_actors_in_film                 >>>>>>>>> Find all of the actors that have been in a film title given a request parameter (String title)
+/actors/actors_in_film                      >>>>>>>>> Find all of the actors that have been in a film title given a request parameter (int id)
 /actors/update/firstname/{id}/{firstname}   >>>>>>>>> Change an actors first name based on their ID
 /actors/update/lastname/{id}/{lastname}     >>>>>>>>> Change last name of an actor based on their new ID
 /actors/update/first_name                   >>>>>>>>> Change the first name of an actor using request (int id, String firstname)
