@@ -113,13 +113,13 @@ public class ActorController {
         return "deleted";
     }
 
-    private static final String NoActorError="No Actor exists with this id.";
+    private static final String Error ="No Actor exists with this id.";
     //update actor first name by ID input first name using url
     @PatchMapping(path = "/update/firstname/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
+                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, Error));
             assert actor != null;
             actor.setFirstName(firstname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -133,7 +133,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorFirstNameReq(@RequestParam int id, @RequestParam String firstname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, Error));
             assert actor != null;
             actor.setFirstName(firstname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -147,7 +147,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorSecondName(@PathVariable int id, @PathVariable String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
+                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, Error));
             assert actor != null;
             actor.setLastName(lastname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -161,7 +161,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorSecondNameReq(@RequestParam int id, @RequestParam String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, Error));
             assert actor != null;
             actor.setLastName(lastname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -175,7 +175,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorFullNameReq(@RequestParam int id, @RequestParam String firstname, @RequestParam String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, Error));
             assert actor != null;
             actor.setFirstName(firstname);
             actor.setLastName(lastname);
