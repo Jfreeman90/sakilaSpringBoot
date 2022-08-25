@@ -77,7 +77,8 @@
 					<excludes>
 						<exclude>/**/*Controller.*</exclude>
 						<exclude>/**/*Repository.*</exclude>
-						<exclude>**/*Config.java</exclude>
+						<exclude>**/CorsConfig.java</exclude>
+						<exclude>**/DataSourceConfig.java</exclude>
 					</excludes>
 				</configuration>
 				<executions>

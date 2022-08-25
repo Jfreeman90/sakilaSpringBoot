@@ -1,6 +1,9 @@
+import com.sakila.database.demo.category.Category;
 import com.sakila.database.demo.film.Film;
+import com.sakila.database.demo.language.Language;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -110,6 +113,17 @@ class FilmTest {
         Film testFilm = new Film();
         testFilm.setTicketsReserved(174);
         assertEquals(174,testFilm.getTicketsReserved(), "Expected to return 174 and didnt");
+    }
+
+    @Test
+    void test_setLanguage(){
+        Film testFilm= new Film();
+        Language testLanguage = new Language();
+        testLanguage.setLanguageId(45);
+        testLanguage.setName("english");
+        testFilm.setLanguage(testLanguage);
+        assertEquals(45,testFilm.getLanguage().getLanguageId(), "Expected to return 45 and didnt");
+        assertEquals("english",testFilm.getLanguage().getName(), "Expected to return english and didnt");
     }
 
     @Test
