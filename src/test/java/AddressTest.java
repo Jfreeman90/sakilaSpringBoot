@@ -15,8 +15,8 @@ class AddressTest {
     @Test
     void test_setAddress(){
         Address testAddress = new Address();
-        testAddress.setAddress_("43 NEW ADDRESS LANE");
-        assertEquals("43 NEW ADDRESS LANE",testAddress.getAddress_(),"Expected to return 43 NEW ADDRESS LANE but didnt");
+        testAddress.setAddress("43 NEW ADDRESS LANE");
+        assertEquals("43 NEW ADDRESS LANE",testAddress.getAddress(),"Expected to return 43 NEW ADDRESS LANE but didnt");
     }
 
     @Test

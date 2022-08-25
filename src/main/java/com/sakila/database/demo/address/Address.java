@@ -12,7 +12,7 @@ public class Address {
     private int addressId;
 
     @Column(name="address")
-    private String address_;
+    private String address;
 
     //join each address to show its city and therefore its country
     @ManyToOne
@@ -42,12 +42,12 @@ public class Address {
         this.addressId = addressId;
     }
 
-    public String getAddress_() {
-        return address_;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddress_(String address) {
-        this.address_ = address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public City getCity() {
@@ -86,7 +86,7 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "addressId=" + addressId +
-                ", address='" + address_ + '\'' +
+                ", address='" + address + '\'' +
                 ", district='" + district + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", phone='" + phone + '\'' +

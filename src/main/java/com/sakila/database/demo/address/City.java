@@ -11,7 +11,7 @@ public class City {
     private int cityId;
 
     @Column(name="city")
-    private String city_;
+    private String city;
 
     //join each city to show its country
     @ManyToOne
@@ -32,12 +32,12 @@ public class City {
         this.cityId = cityId;
     }
 
-    public String getCity_() {
-        return city_;
+    public String getCity() {
+        return city;
     }
 
-    public void setCity_(String city) {
-        this.city_ = city;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public Country getCountry() {
@@ -52,7 +52,7 @@ public class City {
     public String toString() {
         return "City{" +
                 "cityId=" + cityId +
-                ", city='" + city_ + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 }

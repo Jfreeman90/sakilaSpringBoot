@@ -12,7 +12,7 @@ public class Country {
     private int countryId;
 
     @Column(name="country")
-    private String country_;
+    private String country;
 
     //constructor
     public Country() {
@@ -28,19 +28,19 @@ public class Country {
         this.countryId = countryId;
     }
 
-    public String getCountry_() {
-        return country_;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCountry_(String country) {
-        this.country_ = country;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override
     public String toString() {
         return "Country{" +
                 "countryId=" + countryId +
-                ", country='" + country_ + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 }
