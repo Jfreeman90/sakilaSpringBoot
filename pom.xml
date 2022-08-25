@@ -77,9 +77,9 @@
 					<excludes>
 						<exclude>**/*Controller.*</exclude>
 						<exclude>**/*Repository.*</exclude>
-						<exclude>**/*Config.*</exclude>
-						<exclude>**/*Application.*</exclude>
-						<exclude>**/*DTO.*</exclude>
+						<exclude>**/*Config.java</exclude>
+						<exclude>**/*Application.java</exclude>
+						<exclude>**/*DTO.java</exclude>
 					</excludes>
 				</configuration>
 				<executions>
