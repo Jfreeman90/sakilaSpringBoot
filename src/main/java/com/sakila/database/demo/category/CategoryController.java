@@ -11,7 +11,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path="/category")
 public class CategoryController {
-    public CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
     @Autowired
     public void categoryControllerWired(CategoryRepository categoryRepository){this.categoryRepository=categoryRepository;}
 

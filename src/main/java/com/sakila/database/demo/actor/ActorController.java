@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequestMapping(path="/actors")
 public class ActorController {
 
-    public ActorRepository actorRepository;
+    private ActorRepository actorRepository;
     @Autowired
     public void actorControllerWired(ActorRepository actorRepository) {
         this.actorRepository = actorRepository;
@@ -28,8 +28,8 @@ public class ActorController {
     //Post request to add new actor to the actor table
     @PostMapping("/add/{firstName}_{lastName}")
     public @ResponseBody
-    String addNewActor(@PathVariable(name="firstName") String first_name, @PathVariable(name="lastName") String last_name){
-        Actor actor = new Actor(first_name, last_name);
+    String addNewActor(@PathVariable(name="firstName") String firstName, @PathVariable(name="lastName") String lastName){
+        Actor actor = new Actor(firstName, lastName);
         actorRepository.save(actor);
         return "Saved";
     }
@@ -114,7 +114,7 @@ public class ActorController {
         return "deleted";
     }
 
-    private final String noActorError="No Actor exists with this id.";
+    private static final String noActorError="No Actor exists with this id.";
     //update actor first name by ID input first name using url
     @PatchMapping(path = "/update/firstname/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {

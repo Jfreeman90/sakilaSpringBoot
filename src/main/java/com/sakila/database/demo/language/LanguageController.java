@@ -7,7 +7,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path="/language")
 public class LanguageController {
-    public LanguageRepository languageRepository;
+    private LanguageRepository languageRepository;
     @Autowired
     public void languageControllerWired(LanguageRepository languageRepository){
         this.languageRepository=languageRepository;

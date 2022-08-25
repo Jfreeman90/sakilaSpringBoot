@@ -1,4 +1,4 @@
-package com.sakila.database.demo.filmActor;
+package com.sakila.database.demo.filmactor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,15 +1,13 @@
 package com.sakila.database.demo.category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/filmcategory")
 public class FilmCategoryController {
-
     //connect the class to the correct table in the database
-    public FilmCategoryRepository filmCategoryRepository;
+    private FilmCategoryRepository filmCategoryRepository;
     @Autowired
     public void filmCategoryControllerWired(FilmCategoryRepository filmCategoryRepository) {
         this.filmCategoryRepository = filmCategoryRepository;

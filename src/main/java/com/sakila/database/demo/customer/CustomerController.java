@@ -8,7 +8,7 @@ import java.util.Optional;
 @RequestMapping(path="/customer")
 public class CustomerController {
     //create object and wire to sql database 'customer'
-    public CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
     @Autowired
     public void customerControllerWired(CustomerRepository customerRepository){
         this.customerRepository=customerRepository;

@@ -1,4 +1,4 @@
-package com.sakila.database.demo.filmActor;
+package com.sakila.database.demo.filmactor;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

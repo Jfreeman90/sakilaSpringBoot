@@ -1,4 +1,4 @@
-package com.sakila.database.demo.filmActor;
+package com.sakila.database.demo.filmactor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path="/filmactor")
 public class FilmActorController {
     //connect the class to the correct table in the database
-    public FilmActorRepository filmActorRepository;
+    private FilmActorRepository filmActorRepository;
     @Autowired
     public void filmActorControllerWired(FilmActorRepository filmActorRepository) {
         this.filmActorRepository = filmActorRepository;

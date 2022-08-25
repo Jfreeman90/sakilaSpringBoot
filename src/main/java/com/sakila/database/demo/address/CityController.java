@@ -7,7 +7,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/city")
 public class CityController {
-    public CityRepository cityRepository;
+    private CityRepository cityRepository;
     @Autowired
     public void cityControllerWired(CityRepository cityRepository){this.cityRepository=cityRepository;}
 

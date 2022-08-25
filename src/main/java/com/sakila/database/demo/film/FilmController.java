@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +16,7 @@ import java.util.Optional;
 public class FilmController {
 
     //connect the class to the correct table in the database
-    public FilmRepository filmRepository;
+    private FilmRepository filmRepository;
     @Autowired
     public void filmControllerWired(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
@@ -131,8 +132,9 @@ public class FilmController {
     @GetMapping("/random")
     public @ResponseBody
     Optional<Film> getRandomFilm() {
-        long count= filmRepository.count();
-        int index=(int)(Math.random() * count);
+        SecureRandom random = new SecureRandom();
+        int count= (int) filmRepository.count();
+        int index=random.nextInt(count);
         return filmRepository.findById(index);
     }
 
@@ -140,12 +142,13 @@ public class FilmController {
     @GetMapping("/recommended")
     public @ResponseBody
     List<Film> getRecommendedFilms() {
-        long count= filmRepository.count();
+        int count= (int) filmRepository.count();
         List<Film> filmList=new ArrayList<>();
+        SecureRandom random = new SecureRandom();
         //pick three random indexed and add to a film list to return
         for (int i=0; i<3; i++){
             //random index to find a film
-            int index=(int)(Math.random() * count);
+            int index=random.nextInt(count);
             //new film object with a random id
             Film film = filmRepository.findById(index).
                                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No film exists with this id."));

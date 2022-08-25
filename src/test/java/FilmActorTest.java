@@ -1,4 +1,4 @@
-import com.sakila.database.demo.filmActor.FilmActor;
+import com.sakila.database.demo.filmactor.FilmActor;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

@@ -6,7 +6,6 @@ import com.sakila.database.demo.language.Language;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;

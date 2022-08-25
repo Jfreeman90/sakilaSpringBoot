@@ -9,7 +9,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path="/address")
 public class AddressController {
-    public AddressRepository addressRepository;
+    private AddressRepository addressRepository;
     @Autowired
     public void addressControllerWired(AddressRepository addressRepository){this.addressRepository=addressRepository;}
 

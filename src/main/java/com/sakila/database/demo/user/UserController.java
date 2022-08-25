@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping(path="/users")
 public class UserController {
     //create object and wire to sql database 'user'
-    public UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
     public void userControllerWired(UserRepository userRepository){
         this.userRepository=userRepository;

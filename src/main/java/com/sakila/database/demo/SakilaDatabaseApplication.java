@@ -4,10 +4,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class sakilaDatabaseApplication {
+public class SakilaDatabaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(sakilaDatabaseApplication.class, args);
+		SpringApplication.run(SakilaDatabaseApplication.class, args);
 	}
 
 }
