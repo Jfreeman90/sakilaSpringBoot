@@ -16,8 +16,8 @@ class CityTest {
     @Test
     void test_setCityName(){
         City testCity = new City();
-        testCity.setCity("PARIS");;
-        assertEquals("PARIS", testCity.getCity(), "Expected to get PARIS and didnt.");
+        testCity.setCity_("PARIS");;
+        assertEquals("PARIS", testCity.getCity_(), "Expected to get PARIS and didnt.");
     }
 
     @Test

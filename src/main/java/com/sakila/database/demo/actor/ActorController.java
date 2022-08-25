@@ -37,10 +37,9 @@ public class ActorController {
     //Post request to add new actor to the actor table using request params
     @PostMapping("/add_actor")
     public @ResponseBody
-    String addNewActorReq(@RequestParam String firstName, @RequestParam String lastName){
+    void addNewActorReq(@RequestParam String firstName, @RequestParam String lastName){
         Actor actor = new Actor(firstName, lastName);
         actorRepository.save(actor);
-        return "Saved";
     }
 
     //Get request for a specific actor based on the id
@@ -114,13 +113,13 @@ public class ActorController {
         return "deleted";
     }
 
-    private static final String noActorError="No Actor exists with this id.";
+    private static final String NoActorError="No Actor exists with this id.";
     //update actor first name by ID input first name using url
     @PatchMapping(path = "/update/firstname/{id}/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Actor> updateActorFirstName(@PathVariable int id, @PathVariable String firstname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, noActorError));
+                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
             assert actor != null;
             actor.setFirstName(firstname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -134,7 +133,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorFirstNameReq(@RequestParam int id, @RequestParam String firstname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, noActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
             assert actor != null;
             actor.setFirstName(firstname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -148,7 +147,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorSecondName(@PathVariable int id, @PathVariable String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, noActorError));
+                                             orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
             assert actor != null;
             actor.setLastName(lastname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -162,7 +161,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorSecondNameReq(@RequestParam int id, @RequestParam String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, noActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
             assert actor != null;
             actor.setLastName(lastname);
             return new ResponseEntity<>(actorRepository.save(actor), HttpStatus.OK);
@@ -176,7 +175,7 @@ public class ActorController {
     public ResponseEntity<Actor> updateActorFullNameReq(@RequestParam int id, @RequestParam String firstname, @RequestParam String lastname) {
         try {
             Actor actor = actorRepository.findById(id).
-                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, noActorError));
+                                            orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, NoActorError));
             assert actor != null;
             actor.setFirstName(firstname);
             actor.setLastName(lastname);

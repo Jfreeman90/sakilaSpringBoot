@@ -15,8 +15,8 @@ class CountryTest {
     @Test
     void test_setCountryName(){
         Country testCountry = new Country();
-        testCountry.setCountry("EGYPT");;
-        assertEquals("EGYPT", testCountry.getCountry(), "Expected to get EGYPT and didnt.");
+        testCountry.setCountry_("EGYPT");;
+        assertEquals("EGYPT", testCountry.getCountry_(), "Expected to get EGYPT and didnt.");
     }
 
     @Test
